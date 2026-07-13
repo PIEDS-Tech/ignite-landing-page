@@ -1,0 +1,128 @@
+.footer {
+  padding: 100px 0 40px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1;
+}
+
+.brandText {
+  font-size: clamp(5rem, 14vw, 12rem);
+  font-weight: 800;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.025);
+  text-transform: uppercase;
+  line-height: 1;
+  margin-bottom: 40px;
+  user-select: none;
+  letter-spacing: 8px;
+}
+
+.tagline {
+  text-align: center;
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 40px;
+  line-height: 1.5;
+}
+
+.links {
+  display: flex;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+
+.link {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.link:hover {
+  color: #f97316;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.socialLink {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-weight: 500;
+}
+
+.socialLink:hover {
+  color: #fff;
+}
+
+.divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 24px;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.25);
+  margin: 0;
+}
+
+.backToTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.35);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.backToTop:hover {
+  color: #f97316;
+}
+
+.glowOrb {
+  position: absolute;
+  bottom: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 400px;
+  background: radial-gradient(ellipse, rgba(249, 115, 22, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 60px 0 32px;
+  }
+
+  .bottom {
+    justify-content: center;
+    text-align: center;
+  }
+}
