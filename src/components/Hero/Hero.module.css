@@ -145,6 +145,53 @@
   50%       { opacity: 0.4; }
 }
 
+/* ── Desert silhouettes (transparent PNGs, inverted to white) ── */
+.silhouetteTree,
+.silhouetteCamel,
+.silhouetteCamelFlip {
+  position: absolute;
+  bottom: 80px; /* sit just above the stats bar */
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
+  /* black silhouette → white, bg is already transparent */
+  filter: invert(1) brightness(0.92) sepia(0.15);
+}
+
+/* Palm tree — tall, anchored to right edge */
+.silhouetteTree {
+  right: 4vw;
+  height: clamp(260px, 52vh, 560px);
+  width: auto;
+  opacity: 0.6;
+  transform-origin: bottom center;
+  animation: treeSway 8s ease-in-out infinite;
+}
+
+@keyframes treeSway {
+  0%, 100% { transform: rotate(-1.5deg); }
+  50%       { transform: rotate(1.5deg);  }
+}
+
+/* Camel 1 — left of the tree, facing left */
+.silhouetteCamel {
+  right: calc(4vw + clamp(120px, 24vw, 320px));
+  height: clamp(100px, 20vh, 220px);
+  width: auto;
+  opacity: 0.55;
+  transform-origin: bottom center;
+}
+
+/* Camel 2 — mirrored, tucked right beside the tree base */
+.silhouetteCamelFlip {
+  right: calc(4vw + clamp(20px, 4vw, 60px));
+  height: clamp(85px, 17vh, 190px);
+  width: auto;
+  opacity: 0.48;
+  transform: scaleX(-1);
+  transform-origin: bottom center;
+}
+
 /* ── Watermark logo ── */
 .watermark {
   position: absolute;
@@ -367,7 +414,10 @@
 }
 
 @media (max-width: 768px) {
-  .hero      { padding: 100px 20px 160px; }
-  .statsBar  { position: relative; bottom: auto; }
-  .scrollCue { display: none; }
+  .hero              { padding: 100px 20px 160px; }
+  .statsBar          { position: relative; bottom: auto; }
+  .scrollCue         { display: none; }
+  .silhouetteTree,
+  .silhouetteCamel,
+  .silhouetteCamelFlip { display: none; }
 }

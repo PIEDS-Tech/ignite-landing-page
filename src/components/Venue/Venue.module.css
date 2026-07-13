@@ -55,24 +55,10 @@
   align-items: center;
 }
 
-.imageGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-}
-
-.mainImage {
-  grid-column: span 2;
+.singleImage {
   position: relative;
-  height: 280px;
+  height: 460px;
   border-radius: 20px;
-  overflow: hidden;
-}
-
-.smallImage {
-  position: relative;
-  height: 180px;
-  border-radius: 16px;
   overflow: hidden;
 }
 
@@ -150,17 +136,7 @@
 }
 
 @media (max-width: 768px) {
-  .section {
-    padding: 80px 0;
-  }
-  .content {
-    grid-template-columns: 1fr;
-    gap: 32px;
-  }
-  .mainImage {
-    height: 220px;
-  }
-  .smallImage {
-    height: 140px;
-  }
+  .section  { padding: 80px 0; }
+  .content  { grid-template-columns: 1fr; gap: 32px; }
+  .singleImage { height: 280px; }
 }

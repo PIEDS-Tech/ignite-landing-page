@@ -40,9 +40,9 @@ export default function Headline() {
       const windowH = window.innerHeight;
       // Start highlighting when section top hits 80% down the viewport
       // Finish when section bottom is at 20% down the viewport
-      const start = windowH * 0.6;
+      const start = windowH * 0.75;
       const end   = windowH * 0.1;
-      const raw   = (start - top) / (start - end + height * 1.4);
+      const raw   = (start - top) / (start - end + height * 0.5);
       setProgress(Math.min(1, Math.max(0, raw)));
     };
 

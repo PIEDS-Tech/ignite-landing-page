@@ -59,6 +59,11 @@ export default function Hero() {
         aria-hidden="true"
       />
 
+      {/* ── Desert silhouettes ── */}
+      <img src="/tree-t.png"  alt="" className={styles.silhouetteTree}       aria-hidden="true" />
+      <img src="/camel-t.png" alt="" className={styles.silhouetteCamel}      aria-hidden="true" />
+      <img src="/camel-t.png" alt="" className={styles.silhouetteCamelFlip}  aria-hidden="true" />
+
       {/* ── Left edge: vertical IGNITE + horizontal 2026 ── */}
       <div className={styles.leftTypo} style={{ transform: contentTransform }}>
         <h1 className={styles.igniteVert}>IGNITE</h1>

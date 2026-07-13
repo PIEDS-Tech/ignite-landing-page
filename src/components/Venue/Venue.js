@@ -18,34 +18,14 @@ export default function Venue() {
         </div>
 
         <div className={styles.content}>
-          <div className={styles.imageGrid}>
-            <div className={styles.mainImage}>
-              <Image
-                src={venue.images[0].src}
-                alt={venue.images[0].alt}
-                fill
-                sizes="(max-width: 768px) 100vw, 60vw"
-                className={styles.image}
-              />
-            </div>
-            <div className={styles.smallImage}>
-              <Image
-                src={venue.images[1].src}
-                alt={venue.images[1].alt}
-                fill
-                sizes="(max-width: 768px) 50vw, 30vw"
-                className={styles.image}
-              />
-            </div>
-            <div className={styles.smallImage}>
-              <Image
-                src={venue.images[2].src}
-                alt={venue.images[2].alt}
-                fill
-                sizes="(max-width: 768px) 50vw, 30vw"
-                className={styles.image}
-              />
-            </div>
+          <div className={styles.singleImage}>
+            <Image
+              src={venue.images[0].src}
+              alt={venue.images[0].alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 60vw"
+              className={styles.image}
+            />
           </div>
 
           <div className={styles.info}>
