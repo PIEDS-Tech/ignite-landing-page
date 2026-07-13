@@ -1,0 +1,299 @@
+{
+  "exportedAt": "2026-07-13T08:02:19.457Z",
+  "collections": [
+    {
+      "name": "Agenda",
+      "itemCount": 10,
+      "schema": [
+        {
+          "name": "Event Day",
+          "type": "single",
+          "key": "$control__event_day",
+          "referencedCollection": "Event Day"
+        },
+        {
+          "name": "Agenda Name",
+          "type": "string",
+          "key": "$control__agenda_name",
+          "referencedCollection": null
+        },
+        {
+          "name": "Short Description",
+          "type": "string",
+          "key": "$control__short_description",
+          "referencedCollection": null
+        },
+        {
+          "name": "Tag 1",
+          "type": "string",
+          "key": "$control__tag_1",
+          "referencedCollection": null
+        },
+        {
+          "name": "Tag 2",
+          "type": "string",
+          "key": "$control__tag_2",
+          "referencedCollection": null
+        },
+        {
+          "name": "Hosted By",
+          "type": "string",
+          "key": "$control__hosted_by",
+          "referencedCollection": null
+        },
+        {
+          "name": "Duration",
+          "type": "string",
+          "key": "$control__duration",
+          "referencedCollection": null
+        },
+        {
+          "name": "Host Image",
+          "type": "image",
+          "key": "$control__host_image",
+          "referencedCollection": null
+        },
+        {
+          "name": "Slug",
+          "type": "string",
+          "key": "$control__slug",
+          "referencedCollection": null
+        },
+        {
+          "name": "Time",
+          "type": "string",
+          "key": "$control__time",
+          "referencedCollection": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "key": "$control__id",
+          "referencedCollection": null
+        }
+      ],
+      "items": [
+        {
+          "__itemName": "",
+          "__itemId": "CWk7VAN5l",
+          "Event Day": "vANvFlEWW",
+          "Agenda Name": "Lunch & Peer Meetups",
+          "Short Description": "Join small, topic-focused tables to discuss shared challenges and ideas.",
+          "Tag 1": "Networking",
+          "Tag 2": "Meetups",
+          "Hosted By": "Steve Angelo",
+          "Duration": "45 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/kdOSS6oX0QI2MNascXhG4GDp9Y.jpg",
+            "alt": "Event Speaker"
+          },
+          "Slug": "lunch-peer-meetups",
+          "Time": "12:45 – 13:30",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "oujMHYa3g",
+          "Event Day": "vANvFlEWW",
+          "Agenda Name": "Responsible AI in Practice",
+          "Short Description": "Practical approaches to governance, risk, and trust when deploying AI systems.",
+          "Tag 1": "Ethics",
+          "Tag 2": "Governance",
+          "Hosted By": "James Okafor",
+          "Duration": "45 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/ImPch0d8DDnmh6cRRuwG2q07U.jpg",
+            "alt": "Event Speaker"
+          },
+          "Slug": "responsible-ai-in-practice",
+          "Time": "12:00 – 12:45",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "ocTfO8pbL",
+          "Event Day": "vANvFlEWW",
+          "Agenda Name": "Building AI-Ready Teams",
+          "Short Description": "Roles, skills, and collaboration models teams are adopting to work effectively with AI.",
+          "Tag 1": "Teams",
+          "Tag 2": "Operations",
+          "Hosted By": "Org Design Expert",
+          "Duration": "45 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/V6dFoZ9T9sz9ZfjSDk1mUoQzzk.jpg",
+            "alt": "Event Speaker"
+          },
+          "Slug": "building-ai-ready-teams",
+          "Time": "11:00 – 11:45",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "GR8NRGwUt",
+          "Event Day": "vANvFlEWW",
+          "Agenda Name": "Keynote: Scaling AI Beyond the First Use Case",
+          "Short Description": "How teams move from isolated AI experiments to sustainable, organization-wide adoption.",
+          "Tag 1": "Keynote",
+          "Tag 2": "Scaling AI",
+          "Hosted By": "Mitiho James",
+          "Duration": "45 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/JXKU3kvLy7cYOGXkzqr5DLHT64w.jpg",
+            "alt": "Event Speaker"
+          },
+          "Slug": "keynote-scaling-ai-beyond-the-first-use-case",
+          "Time": "10:00 – 10:45",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "qoIF85ug6",
+          "Event Day": "vANvFlEWW",
+          "Agenda Name": "Morning Coffee & Check-In",
+          "Short Description": "Ease into the day with coffee and informal conversations before sessions begin.",
+          "Tag 1": "Networking",
+          "Tag 2": "Coffee",
+          "Hosted By": "Steve Angelo",
+          "Duration": "30 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/kdOSS6oX0QI2MNascXhG4GDp9Y.jpg",
+            "alt": "Event Speaker"
+          },
+          "Slug": "morning-coffee-check-in",
+          "Time": "09:30 – 10:00",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "dGrtqsaSc",
+          "Event Day": "DdzVU3ToQ",
+          "Agenda Name": "Hands-On Workshops",
+          "Short Description": "Interactive sessions focused on building workflows, integrating AI into products, and working responsibly with AI.",
+          "Tag 1": "Workshop",
+          "Tag 2": "Hands-on",
+          "Hosted By": "Mike Johasa",
+          "Duration": "60 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/eKnFvqXo8NgeKDp3haIv43lSQw.jpg",
+            "alt": "Event Speaker"
+          },
+          "Slug": "hands",
+          "Time": "13:30 – 14:30",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "ZG909gZNJ",
+          "Event Day": "DdzVU3ToQ",
+          "Agenda Name": "Engineering AI in Production",
+          "Short Description": "Lessons from deploying, monitoring, and maintaining AI systems beyond the demo stage.",
+          "Tag 1": "Engineering",
+          "Tag 2": "Infrastructure",
+          "Hosted By": "James Okafor",
+          "Duration": "45 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/iRgoQCvGS1zaGMqyv3Tk3caXGc0.jpg",
+            "alt": "Event Speaker"
+          },
+          "Slug": "hands-on-workshops",
+          "Time": "11:30 – 12:15",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "obxCW1vOc",
+          "Event Day": "DdzVU3ToQ",
+          "Agenda Name": "Designing AI-Powered Experiences",
+          "Short Description": "How product and design teams are rethinking workflows, interfaces, and trust in AI-driven systems.",
+          "Tag 1": "Design",
+          "Tag 2": "Product",
+          "Hosted By": "Senior Engineer",
+          "Duration": "45 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/x03iZHd85DE4I0yPBLcGKVLZk2A.jpg",
+            "alt": "Event Speaker"
+          },
+          "Slug": "designing-ai-powered-experiences",
+          "Time": "10:30 – 11:15",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "upxYEOssL",
+          "Event Day": "DdzVU3ToQ",
+          "Agenda Name": "Opening Keynote: Building AI That Actually Ships",
+          "Short Description": "A practical look at how teams move from experimentation to production when working with AI.",
+          "Tag 1": "Keynote",
+          "Tag 2": "Applied AI",
+          "Hosted By": "Sarah Chen",
+          "Duration": "45 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/EKxofgzJqoUFa12aKNb6w3bdc.jpg",
+            "alt": "Event Speaker"
+          },
+          "Slug": "opening-keynote-building-ai-that-actually-ships",
+          "Time": "09:30 – 10:15",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "HomhaWZod",
+          "Event Day": "DdzVU3ToQ",
+          "Agenda Name": "Registration & Welcome",
+          "Short Description": "Check in, grab coffee, and connect with fellow attendees.",
+          "Tag 1": "Introduction",
+          "Tag 2": "Networking",
+          "Hosted By": "Event Team",
+          "Duration": "30 mins",
+          "Host Image": {
+            "src": "https://framerusercontent.com/images/GdwRHopL5PPZoFG3vtKrMi8Obs.jpg",
+            "alt": "Event Host"
+          },
+          "Slug": "registration-welcome",
+          "Time": "09:00 – 09:30",
+          "id": null
+        }
+      ]
+    },
+    {
+      "name": "Event Day",
+      "itemCount": 2,
+      "schema": [
+        {
+          "name": "Title",
+          "type": "string",
+          "key": "$control__title",
+          "referencedCollection": null
+        },
+        {
+          "name": "Slug",
+          "type": "string",
+          "key": "$control__slug",
+          "referencedCollection": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "key": "$control__id",
+          "referencedCollection": null
+        }
+      ],
+      "items": [
+        {
+          "__itemName": "",
+          "__itemId": "vANvFlEWW",
+          "Title": "Day 2",
+          "Slug": "day-2",
+          "id": null
+        },
+        {
+          "__itemName": "",
+          "__itemId": "DdzVU3ToQ",
+          "Title": "Day 1",
+          "Slug": "day-1",
+          "id": null
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,172 @@
+const siteContent = {
+  meta: {
+    title: 'Ignite 2026 — The Future of AI & Technology',
+    description: 'Join the premier AI and technology conference. Two days of keynotes, workshops, and networking with industry leaders shaping the future.',
+    ogImage: 'https://framerusercontent.com/images/7nSs7VnwPoPuE8VzDBzu3tvMi8.jpg',
+  },
+  nav: {
+    logoText: 'IGNITE',
+    logoYear: '2026',
+    links: [
+      { label: 'About', href: '#about' },
+      { label: 'Speakers', href: '#speakers' },
+      { label: 'Agenda', href: '#agenda' },
+      { label: 'Tickets', href: '#tickets' },
+      { label: 'Venue', href: '#venue' },
+    ],
+    ctaText: 'Get Tickets',
+    ctaHref: '#tickets',
+  },
+  hero: {
+    badge: 'August 15–16, 2026 · San Francisco, CA',
+    headline: 'Where Innovation',
+    headlineAccent: 'Ignites',
+    description:
+      'Two days of groundbreaking keynotes, hands-on workshops, and unparalleled networking with the brightest minds in AI and technology.',
+    ctaPrimary: { label: 'Reserve Your Spot', href: '#tickets' },
+    ctaSecondary: { label: 'View Agenda', href: '#agenda' },
+    stats: [
+      { value: '2,500+', label: 'Attendees' },
+      { value: '50+', label: 'Speakers' },
+      { value: '30+', label: 'Sessions' },
+      { value: '2', label: 'Days' },
+    ],
+    images: [
+      { src: 'https://framerusercontent.com/images/A8Wev8Q00vjklJKzYiwivtzIEVM.png', alt: 'Speaker at Event' },
+      { src: 'https://framerusercontent.com/images/FuVWIbguggxSJn75i9NlcLjASc.png', alt: 'Event Audience' },
+    ],
+  },
+  about: {
+    label: 'Who Should Attend',
+    title: 'Built for the Builders,',
+    titleAccent: 'Thinkers & Doers',
+    description:
+      "Whether you're shipping products, leading teams, or pushing the boundaries of what's possible — Ignite 2026 is where you belong.",
+    audiences: [
+      { title: 'Designers', description: 'Explore AI-powered design workflows and create next-gen user experiences.', icon: 'https://framerusercontent.com/images/Ow4AoJVwl2xpuCj7w4BHRB28ysc.svg' },
+      { title: 'Agencies', description: 'Discover how AI transforms client delivery, operations, and creative output.', icon: 'https://framerusercontent.com/images/o5c8ZUWfB40t6RvCTk7KKnM7l5I.svg' },
+      { title: 'Founders', description: 'Learn strategies to build and scale AI-first products and companies.', icon: 'https://framerusercontent.com/images/H3QMF2I41FYBAUQa9OyXUquJJxQ.svg' },
+      { title: 'Leaders', description: 'Gain insights on governance, adoption strategies, and building AI-ready orgs.', icon: 'https://framerusercontent.com/images/PmGum1yrMcblvXHfGmaDyT4W7BA.svg' },
+      { title: 'Developers', description: 'Hands-on workshops on deploying, scaling, and maintaining AI systems.', icon: 'https://framerusercontent.com/images/6DDT13RjeeQY2aqquxouBBZhKHg.svg' },
+    ],
+  },
+  speakers: {
+    label: 'Speakers',
+    title: 'Learn from the',
+    titleAccent: 'Best in the Industry',
+    description: 'Industry leaders, researchers, and practitioners sharing real-world insights.',
+    list: [
+      { name: 'Sarah Chen', role: 'AI Research Lead', company: 'DeepMind', image: 'https://framerusercontent.com/images/19wGOlJQp54zgd3vWysk6Wqafk.png' },
+      { name: 'James Okafor', role: 'Head of AI Ethics', company: 'OpenAI', image: 'https://framerusercontent.com/images/FsNbsa9jCpD7375FjsQuEO8JBw.webp' },
+      { name: 'Mitiho James', role: 'CTO', company: 'Scale AI', image: 'https://framerusercontent.com/images/Novsmjw6IIhKDVyD7ZI2i4sAsE.webp' },
+      { name: 'Mike Johasa', role: 'VP Engineering', company: 'Anthropic', image: 'https://framerusercontent.com/images/IVA2zVsD7sWebTDntsDdlviCksQ.webp' },
+    ],
+  },
+  agenda: {
+    label: 'Event Agenda',
+    title: 'Two Days of',
+    titleAccent: 'Inspiring Sessions',
+    description: 'From keynotes to hands-on workshops, every session is designed to deliver actionable value.',
+    days: [
+      {
+        id: 'day-1',
+        label: 'Day 1',
+        date: 'August 15, 2026',
+        sessions: [
+          { time: '09:00 – 09:30', title: 'Registration & Welcome', description: 'Check in, grab coffee, and connect with fellow attendees.', speaker: 'Event Team', duration: '30 mins', tags: ['Introduction', 'Networking'] },
+          { time: '09:30 – 10:15', title: 'Opening Keynote: Building AI That Actually Ships', description: 'A practical look at how teams move from experimentation to production when working with AI.', speaker: 'Sarah Chen', duration: '45 mins', tags: ['Keynote', 'Applied AI'] },
+          { time: '10:30 – 11:15', title: 'Designing AI-Powered Experiences', description: 'How product and design teams are rethinking workflows, interfaces, and trust in AI-driven systems.', speaker: 'Senior Engineer', duration: '45 mins', tags: ['Design', 'Product'] },
+          { time: '11:30 – 12:15', title: 'Engineering AI in Production', description: 'Lessons from deploying, monitoring, and maintaining AI systems beyond the demo stage.', speaker: 'James Okafor', duration: '45 mins', tags: ['Engineering', 'Infrastructure'] },
+          { time: '13:30 – 14:30', title: 'Hands-On Workshops', description: 'Interactive sessions focused on building workflows, integrating AI into products, and working responsibly with AI.', speaker: 'Mike Johasa', duration: '60 mins', tags: ['Workshop', 'Hands-on'] },
+        ],
+      },
+      {
+        id: 'day-2',
+        label: 'Day 2',
+        date: 'August 16, 2026',
+        sessions: [
+          { time: '09:30 – 10:00', title: 'Morning Coffee & Check-In', description: 'Ease into the day with coffee and informal conversations before sessions begin.', speaker: 'Steve Angelo', duration: '30 mins', tags: ['Networking', 'Coffee'] },
+          { time: '10:00 – 10:45', title: 'Keynote: Scaling AI Beyond the First Use Case', description: 'How teams move from isolated AI experiments to sustainable, organization-wide adoption.', speaker: 'Mitiho James', duration: '45 mins', tags: ['Keynote', 'Scaling AI'] },
+          { time: '11:00 – 11:45', title: 'Building AI-Ready Teams', description: 'Roles, skills, and collaboration models teams are adopting to work effectively with AI.', speaker: 'Org Design Expert', duration: '45 mins', tags: ['Teams', 'Operations'] },
+          { time: '12:00 – 12:45', title: 'Responsible AI in Practice', description: 'Practical approaches to governance, risk, and trust when deploying AI systems.', speaker: 'James Okafor', duration: '45 mins', tags: ['Ethics', 'Governance'] },
+          { time: '12:45 – 13:30', title: 'Lunch & Peer Meetups', description: 'Join small, topic-focused tables to discuss shared challenges and ideas.', speaker: 'Steve Angelo', duration: '45 mins', tags: ['Networking', 'Meetups'] },
+        ],
+      },
+    ],
+  },
+  tickets: {
+    label: 'Tickets',
+    title: 'Choose Your',
+    titleAccent: 'Experience',
+    description: 'Select the pass that fits your goals. Every ticket includes full access to all keynotes and networking events.',
+    plans: [
+      {
+        name: 'Core Pass',
+        price: '$499',
+        description: 'Everything you need to experience Ignite 2026.',
+        features: ['All keynote sessions', 'Networking events', 'Coffee & lunch included', 'Event recordings access', 'Community Slack access'],
+        cta: 'Get Core Pass',
+        featured: false,
+        icon: 'https://framerusercontent.com/images/MtnFEBLnoIRm6qLSHDEza33VtQg.svg',
+      },
+      {
+        name: 'Plus Pass',
+        price: '$899',
+        description: 'The complete Ignite experience with exclusive perks.',
+        features: ['Everything in Core Pass', 'Hands-on workshops', 'VIP networking dinner', 'Speaker meet & greet', '1-on-1 mentoring sessions', 'Priority seating'],
+        cta: 'Get Plus Pass',
+        featured: true,
+        icon: 'https://framerusercontent.com/images/oxVYUGu5fnvPmYPtKKqRv1LEb20.svg',
+      },
+    ],
+  },
+  venue: {
+    label: 'Venue',
+    title: 'Where It All',
+    titleAccent: 'Happens',
+    description: 'Join us at the heart of innovation in San Francisco.',
+    name: 'Moscone Center',
+    address: '747 Howard St, San Francisco, CA 94103',
+    features: ['State-of-the-art facilities', 'Easy transit access', 'Surrounded by hotels & dining'],
+    images: [
+      { src: 'https://framerusercontent.com/images/q5CAbxhi8kSJKB38EtQVvO7VQ9w.webp', alt: 'Venue Building' },
+      { src: 'https://framerusercontent.com/images/ipAHfDTsRyvhAr0360dua0CI.jpg', alt: 'Event Space' },
+      { src: 'https://framerusercontent.com/images/AGgTnqv7WNLDD9gJKbVesxEaN7o.jpg', alt: 'Conference Hall' },
+    ],
+  },
+  sponsors: {
+    label: 'Trusted By Industry Leaders',
+    logos: [
+      { src: 'https://framerusercontent.com/images/U3UWEJ0rFiixMujWaZhxQdeJZVY.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/ze736YGI30StVzZyhVvAd6JYYAM.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/g1JspCWG2yP8BW4YdGf0oywBhA.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/JNfwKVs04XxypCyxC4tPm2POMsY.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/K8zbe1EcvPteDnrdhXi8Vey7X3w.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/7xdhspAvQu1xiTUjQCywqlxDAVM.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/nPiYST4kSAIlWsd6HyguNpaz3k8.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/4TvCmtfM6CUB41EUDv8Vq3qpn1U.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/rZ0gDEy43V4cAnXU93xbi326x0I.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/ssoiXCFILQLtptGuH7EWoE0vB6s.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/LnCQAdhqkvLv8Uo73TRV4xdWBA.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/hjwrCOdE6Tvd8gq4879AreIkZ0.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/vCbNorngFJjc1pLCmsrrrthPc.svg', alt: 'Sponsor' },
+      { src: 'https://framerusercontent.com/images/vwTEjPgTDDbuk2ZTMogJiBtbfA.svg', alt: 'Sponsor' },
+    ],
+  },
+  footer: {
+    tagline: 'The future of tech starts here.',
+    copyright: '© 2026 Ignite Conference. All rights reserved.',
+    links: [
+      { label: 'Privacy Policy', href: '#' },
+      { label: 'Terms of Service', href: '#' },
+      { label: 'Code of Conduct', href: '#' },
+    ],
+    social: [
+      { label: 'Twitter', href: '#' },
+      { label: 'LinkedIn', href: '#' },
+      { label: 'Instagram', href: '#' },
+    ],
+  },
+};
+
+export default siteContent;
