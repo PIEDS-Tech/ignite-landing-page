@@ -1,14 +1,18 @@
 .section {
   padding: 80px 0;
   overflow: hidden;
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .label {
   text-align: center;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.35);
+  color: var(--color-text-muted);
+  font-weight: 600;
   margin-bottom: 40px;
 }
 
@@ -31,12 +35,12 @@
 
 .marqueeContainer::before {
   left: 0;
-  background: linear-gradient(to right, #0a0a0a, transparent);
+  background: linear-gradient(to right, var(--color-surface), transparent);
 }
 
 .marqueeContainer::after {
   right: 0;
-  background: linear-gradient(to left, #0a0a0a, transparent);
+  background: linear-gradient(to left, var(--color-surface), transparent);
 }
 
 .marqueeTrack {
@@ -63,29 +67,27 @@
 
 .logo {
   height: 26px;
-  opacity: 0.4;
-  filter: brightness(0) invert(1);
-  transition: opacity 0.3s;
+  opacity: 0.6;
+  filter: grayscale(100%) contrast(200%);
+  transition: opacity 0.3s, filter 0.3s;
   flex-shrink: 0;
 }
 
 .logo:hover {
-  opacity: 0.8;
+  opacity: 1;
+  filter: none;
 }
 
 @media (max-width: 768px) {
   .section {
     padding: 60px 0;
   }
-
   .marqueeTrack {
     gap: 40px;
   }
-
   .logo {
     height: 20px;
   }
-
   .marqueeContainer::before,
   .marqueeContainer::after {
     width: 60px;

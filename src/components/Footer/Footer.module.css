@@ -1,8 +1,9 @@
 .footer {
   padding: 100px 0 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--color-border);
   position: relative;
   overflow: hidden;
+  background: var(--color-surface);
 }
 
 .container {
@@ -17,7 +18,7 @@
   font-size: clamp(5rem, 14vw, 12rem);
   font-weight: 800;
   text-align: center;
-  color: rgba(255, 255, 255, 0.025);
+  color: rgba(61, 40, 0, 0.04);
   text-transform: uppercase;
   line-height: 1;
   margin-bottom: 40px;
@@ -28,9 +29,10 @@
 .tagline {
   text-align: center;
   font-size: 1.15rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: var(--color-text-secondary);
   margin: 0 0 40px;
   line-height: 1.5;
+  font-weight: 600;
 }
 
 .links {
@@ -42,14 +44,15 @@
 }
 
 .link {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 500;
 }
 
 .link:hover {
-  color: #f97316;
+  color: var(--color-accent);
 }
 
 .socialLinks {
@@ -60,20 +63,20 @@
 }
 
 .socialLink {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color 0.3s;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .socialLink:hover {
-  color: #fff;
+  color: var(--color-text);
 }
 
 .divider {
   height: 1px;
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--color-border);
   margin-bottom: 24px;
 }
 
@@ -86,41 +89,31 @@
 }
 
 .copyright {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.25);
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
   margin: 0;
+  font-weight: 500;
 }
 
 .backToTop {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color 0.3s;
+  font-weight: 600;
 }
 
 .backToTop:hover {
-  color: #f97316;
-}
-
-.glowOrb {
-  position: absolute;
-  bottom: -200px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 600px;
-  height: 400px;
-  background: radial-gradient(ellipse, rgba(249, 115, 22, 0.06) 0%, transparent 70%);
-  pointer-events: none;
+  color: var(--color-accent);
 }
 
 @media (max-width: 768px) {
   .footer {
     padding: 60px 0 32px;
   }
-
   .bottom {
     justify-content: center;
     text-align: center;

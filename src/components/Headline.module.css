@@ -1,0 +1,31 @@
+.section { padding: 120px 0; background: #efead3; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.label { 
+  display: inline-block; 
+  font-size: 0.75rem; 
+  text-transform: uppercase; 
+  letter-spacing: 1px; 
+  margin-bottom: 40px;
+  position: relative;
+  padding: 10px;
+  font-weight: 600;
+  color: #3d2800;
+}
+.text {
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 500;
+  line-height: 1.1;
+  color: #3d2800;
+  letter-spacing: -0.03em;
+  max-width: 1000px;
+}
+.inlineImg {
+  display: inline-block;
+  height: 0.8em;
+  width: 2em;
+  object-fit: cover;
+  border-radius: 100px;
+  vertical-align: middle;
+  margin: 0 8px;
+}
+.faded { color: rgba(61, 40, 0, 0.3); }

@@ -17,11 +17,11 @@
   display: inline-block;
   padding: 8px 20px;
   border-radius: 100px;
-  border: 1px solid rgba(249, 115, 22, 0.25);
-  background: rgba(249, 115, 22, 0.06);
-  color: rgba(255, 255, 255, 0.7);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-secondary);
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 24px;
@@ -29,25 +29,23 @@
 
 .sectionTitle {
   font-size: clamp(2rem, 5vw, 3.25rem);
-  font-weight: 700;
-  color: #fff;
+  font-weight: 800;
+  color: var(--color-text);
   line-height: 1.15;
   margin: 0 0 20px;
 }
 
 .titleAccent {
-  background: linear-gradient(135deg, #f97316, #fbbf24);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--color-accent);
 }
 
 .description {
   font-size: 1.05rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-secondary);
   line-height: 1.7;
-  max-width: 560px;
+  max-width: 600px;
   margin: 0 auto;
+  font-weight: 500;
 }
 
 .content {
@@ -94,16 +92,17 @@
 
 .venueName {
   font-size: 2rem;
-  color: #fff;
-  font-weight: 700;
+  color: var(--color-text);
+  font-weight: 800;
   margin: 0 0 12px;
 }
 
 .venueAddress {
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--color-text-secondary);
   margin: 0 0 32px;
   line-height: 1.5;
+  font-weight: 500;
 }
 
 .featureList {
@@ -118,8 +117,9 @@
   gap: 14px;
   padding: 14px 0;
   font-size: 0.95rem;
-  color: rgba(255, 255, 255, 0.65);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-border);
+  font-weight: 500;
 }
 
 .featureItem:last-child {
@@ -130,7 +130,7 @@
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: #f97316;
+  background: var(--color-accent);
   flex-shrink: 0;
 }
 
@@ -138,10 +138,10 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.9rem;
-  color: #f97316;
+  font-size: 0.95rem;
+  color: var(--color-accent-dark);
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 700;
   transition: gap 0.3s;
 }
 
@@ -153,16 +153,13 @@
   .section {
     padding: 80px 0;
   }
-
   .content {
     grid-template-columns: 1fr;
     gap: 32px;
   }
-
   .mainImage {
     height: 220px;
   }
-
   .smallImage {
     height: 140px;
   }

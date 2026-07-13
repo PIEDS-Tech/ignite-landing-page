@@ -1,0 +1,15 @@
+.section { padding: 120px 0; background: #efead3; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.label { font-size: 0.75rem; text-transform: uppercase; font-weight: 600; margin-bottom: 40px; text-align: right; }
+.header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 60px; gap: 40px; }
+.title { font-size: 2.5rem; font-weight: 500; color: #3d2800; max-width: 600px; line-height: 1.1; }
+.descBlock { max-width: 400px; display: flex; gap: 24px; }
+.desc { font-size: 0.85rem; color: rgba(61, 40, 0, 0.7); line-height: 1.5; }
+.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.card { display: flex; flex-direction: column; }
+.imgWrapper { width: 100%; aspect-ratio: 3/4; overflow: hidden; margin-bottom: 16px; display: flex; align-items: flex-end; justify-content: center; border-radius: 4px; }
+.img { width: 90%; object-fit: contain; }
+.name { font-size: 1rem; font-weight: 700; color: #3d2800; margin-bottom: 4px; }
+.role { font-size: 0.8rem; color: rgba(61, 40, 0, 0.7); }
+@media (max-width: 768px) { .header { flex-direction: column; } .grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } }

@@ -1,27 +1,12 @@
-import Navbar from '@/components/Navbar/Navbar';
-import Hero from '@/components/Hero/Hero';
-import Sponsors from '@/components/Sponsors/Sponsors';
-import About from '@/components/About/About';
-import Speakers from '@/components/Speakers/Speakers';
-import Agenda from '@/components/Agenda/Agenda';
-import Tickets from '@/components/Tickets/Tickets';
-import Venue from '@/components/Venue/Venue';
-import Footer from '@/components/Footer/Footer';
+import framerContent from '@/data/framerContent';
+
+export const metadata = {
+  title: 'IGNITE 26 - India\'s Most Intense Startup Sprint',
+  description: '6 Days. 100 Innovators. 20+ MVPs. Build and launch your MVP from the beaches of Goa.',
+};
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main>
-        <Hero />
-        <Sponsors />
-        <About />
-        <Speakers />
-        <Agenda />
-        <Tickets />
-        <Venue />
-      </main>
-      <Footer />
-    </>
+    <div dangerouslySetInnerHTML={{ __html: framerContent }} />
   );
 }
