@@ -47,12 +47,12 @@ export default function Footer() {
               <span className={styles.brandName}>IGNITE</span>
             </div>
             <p className={styles.brandDesc}>
-              India's most intense startup sprint — 6 days, 100 innovators,
-              and more than 20 MVPs launched from the beaches of&nbsp;Goa.
+              The flagship global innovation and entrepreneurship platform by PIEDS —
+              building tomorrow, together, from Dubai&nbsp;2026.
             </p>
             <div className={styles.badge}>
               <span className={styles.badgeDot} />
-              Applications open · Sep 7–12, 2026
+              Applications open · Dubai 2026
             </div>
           </div>
 

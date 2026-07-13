@@ -1,3 +1,94 @@
+/* ── Canela font faces ── */
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Thin.woff2') format('woff2'),
+       url('/fonts/Canela-Thin.woff')  format('woff');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-ThinItalic.woff2') format('woff2'),
+       url('/fonts/Canela-ThinItalic.woff')  format('woff');
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Light.woff2') format('woff2'),
+       url('/fonts/Canela-Light.woff')  format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-LightItalic.woff2') format('woff2'),
+       url('/fonts/Canela-LightItalic.woff')  format('woff');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Regular.woff2') format('woff2'),
+       url('/fonts/Canela-Regular.woff')  format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-RegularItalic.woff2') format('woff2'),
+       url('/fonts/Canela-RegularItalic.woff')  format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Medium.woff2') format('woff2'),
+       url('/fonts/Canela-Medium.woff')  format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Bold.woff2') format('woff2'),
+       url('/fonts/Canela-Bold.woff')  format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-BoldItalic.woff2') format('woff2'),
+       url('/fonts/Canela-BoldItalic.woff')  format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Canela';
+  src: url('/fonts/Canela-Black.woff2') format('woff2'),
+       url('/fonts/Canela-Black.woff')  format('woff');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -22,7 +113,7 @@ html { scroll-behavior: smooth; }
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Canela', 'Georgia', 'Times New Roman', serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

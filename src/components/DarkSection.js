@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 import styles from './DarkSection.module.css';
 
 const items = [
-  { n: '01', title: 'Students', desc: 'Bring your idea and turn it into a validated, working MVP in just 6 days — surrounded by peers, mentors, and a community that gets it.' },
-  { n: '02', title: 'Early-Stage Founders', desc: 'Pressure-test your concept, accelerate your build, and get direct access to investors and operators who can help you grow faster.' },
-  { n: '03', title: 'Techies', desc: 'Move beyond side projects — build a real product in a structured, high-energy environment with the right mentorship to ship fast.' },
-  { n: '04', title: 'Entrepreneurs', desc: 'Sharpen your vision, validate your market, and leave with frameworks and a network that will serve you long after the sprint ends.' },
-  { n: '05', title: 'Innovators', desc: 'IGNITE is for anyone who believes in building over talking — students, founders, and tinkerers ready to go from idea to launch.' },
+  { n: '01', title: 'Access to Capital', desc: 'Direct access to active investors and venture capital panels looking for the next big disruption — connect with the funding your venture needs to scale.' },
+  { n: '02', title: 'World-Class Mentorship', desc: 'Unrivaled guidance from industry leaders who have successfully scaled ventures globally — practical wisdom that goes far beyond the classroom.' },
+  { n: '03', title: 'Global Network', desc: 'Join an elite cohort of fellow founders, alumni, and potential co-founders. Build relationships that last well beyond the summit.' },
+  { n: '04', title: 'Institutional Backing', desc: 'Leverage the BITS Pilani brand and PIEDS infrastructure to gain credibility, market traction, and the trust that opens doors globally.' },
+  { n: '05', title: 'Global Stage', desc: 'Showcase your venture at a truly international platform in Dubai — gain visibility across borders, industries, and entrepreneurial ecosystems.' },
 ];
 
 const N = items.length;
@@ -57,11 +57,11 @@ export default function DarkSection() {
   return (
     <section id="who" className={styles.section}>
       <div className={styles.container}>
-        <div className={styles.label}>Who should attend</div>
+        <div className={styles.label}>Why Join IGNITE</div>
         <div className={styles.content}>
-          <h2 className={styles.title}>Built for Students &amp; Early-Stage Founders.</h2>
+          <h2 className={styles.title}>Founders who join IGNITE gain more than a summit.</h2>
           <div className={styles.descBlock}>
-            <p className={styles.desc}>Whether you're a student with a big idea or an early-stage founder ready to build — IGNITE is your launchpad to go from zero to startup.</p>
+            <p className={styles.desc}>They enter a permanent ecosystem of growth — connecting with global capital, world-class mentors, and a community of changemakers building the future.</p>
           </div>
         </div>
       </div>

@@ -72,21 +72,21 @@ export default function Hero() {
         <div className={styles.pills}>
           <span className={styles.pill}>
             <span className={styles.liveDot} aria-hidden="true" />
-            Live Event
+            Global Summit
           </span>
-          <span className={styles.pill}>📍 BITS Pilani, Goa</span>
-          <span className={styles.pill}>Sep 7–12 · 2026</span>
+          <span className={styles.pill}>📍 Dubai, UAE</span>
+          <span className={styles.pill}>2026 · By PIEDS × BITS Pilani</span>
         </div>
 
         {/* Tagline */}
         <p className={styles.tagline}>
-          India's most intense&nbsp;<em className={styles.em}>startup sprint.</em>
+          Building Tomorrow,&nbsp;<em className={styles.em}>Together.</em>
         </p>
 
         {/* Sub */}
         <p className={styles.sub}>
-          6 days · 100 innovators · build, ship &amp; launch your MVP<br />
-          from the beaches of Goa — and compete for ₹10L+ in grants.
+          IGNITE is the flagship global platform by PIEDS — connecting founders,
+          investors, and industry leaders to shape the future of entrepreneurship.
         </p>
 
         {/* CTAs */}
@@ -113,7 +113,7 @@ export default function Hero() {
             ))}
           </div>
           <p className={styles.proofText}>
-            Joined by <strong>950+ founders</strong> from previous editions
+            Joined by <strong>950+ changemakers</strong> across previous editions
           </p>
         </div>
 

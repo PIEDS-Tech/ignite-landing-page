@@ -5,11 +5,9 @@ import styles from './Headline.module.css';
 
 // Text split into segments: strings and inline images
 const SEGMENTS = [
-  { type: 'text',  value: "India's top startup " },
-  { type: 'image', src: 'https://framerusercontent.com/images/JbPxwvJBrFJUIUnPPorAlnIfpT4.png' },
-  { type: 'text',  value: ' sprint where innovators build and launch their MVP in ' },
-  { type: 'image', src: 'https://framerusercontent.com/images/8uIHbH2tUvdXW29Doa9An2Os9o.png' },
-  { type: 'text',  value: ' just six days.' },
+  { type: 'text',  value: 'The flagship global platform where visionary founders, investors, and industry leaders come together to shape the future.' },
+  // { type: 'image', src: 'https://framerusercontent.com/images/JbPxwvJBrFJUIUnPPorAlnIfpT4.png' },
+  // { type: 'image', src: 'https://framerusercontent.com/images/8uIHbH2tUvdXW29Doa9An2Os9o.png' },
 ];
 
 // Flatten into an array of renderable tokens (chars + images) with global indices
@@ -61,7 +59,7 @@ export default function Headline() {
   return (
     <section className={styles.section} ref={sectionRef}>
       <div className={styles.container}>
-        <div className={styles.label}>About BITS Pilani</div>
+        <div className={styles.label}>About IGNITE</div>
         <h2 className={styles.text}>
           {TOKENS.map((token, i) => {
             if (token.type === 'image') {

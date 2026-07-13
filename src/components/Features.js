@@ -7,9 +7,9 @@ export default function Features() {
     <section id="about" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
-          <div className={styles.label}>About IGNITE 2025</div>
+          <div className={styles.label}>{about.label}</div>
           <div className={styles.headerTop}>
-            <h2 className={styles.title}>6 Days. 100 Innovators. 20+ MVPs.</h2>
+            <h2 className={styles.title}>{about.title} <em>{about.titleAccent}</em></h2>
             <p className={styles.desc}>{about.description}</p>
           </div>
         </div>

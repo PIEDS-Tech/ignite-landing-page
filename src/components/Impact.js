@@ -2,14 +2,15 @@ import styles from './Impact.module.css';
 
 export default function Impact() {
   const items = [
-    { t: "950+ Startups", c: "#3d2800" },
-    { t: "$300K Raised by Alchemyst AI", c: "rgba(61,40,0,0.3)" },
-    { t: "60+ VCs", c: "#3d2800" },
-    { t: "₹10L+ Equity-Free Grants", c: "rgba(61,40,0,0.3)" }
+    { t: "950+ Founders", c: "var(--color-text)" },
+    { t: "60+ Active Investors", c: "var(--color-text-muted)" },
+    { t: "₹10L+ Equity-Free Grants", c: "var(--color-text)" },
+    { t: "300+ Startups Incubated", c: "var(--color-text-muted)" },
+    { t: "Global Stage · Dubai 2026", c: "var(--color-text)" },
   ];
   return (
-    <section className={styles.section}>
-      <div className={styles.label}>Impact Of IGNITE'24</div>
+    <section id="impact" className={styles.section}>
+      <div className={styles.label}>Legacy of IGNITE</div>
       <div className={styles.marquee}>
         <div className={styles.track}>
           {[...items, ...items, ...items].map((item, i) => (

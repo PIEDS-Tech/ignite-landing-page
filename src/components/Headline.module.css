@@ -21,9 +21,9 @@
 
 .text {
   font-size: clamp(2.6rem, 5.5vw, 5rem);
-  font-weight: 600;
+  font-weight: 300;
   line-height: 1.15;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.02em;
   /* no global color — each char handles its own */
 }
 

@@ -336,11 +336,38 @@
 
 /* ── Responsive ── */
 @media (max-width: 900px) {
-  .leftTypo { display: none; }
+  /* Switch from absolute vertical sidebar to inline horizontal row */
+  .leftTypo {
+    position: relative;
+    left: auto;
+    top: auto;
+    bottom: auto;
+    width: auto;
+    flex-direction: row;
+    align-items: baseline;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  .igniteVert {
+    writing-mode: horizontal-tb;
+    font-size: clamp(3.5rem, 16vw, 6rem);
+    line-height: 1;
+  }
+
+  .yearHoriz {
+    writing-mode: horizontal-tb;
+    font-size: clamp(1rem, 4vw, 1.6rem);
+    margin-top: 0;
+    padding-top: 6px;
+    align-self: flex-start;
+    letter-spacing: 3px;
+  }
 }
 
 @media (max-width: 768px) {
-  .hero     { padding: 120px 20px 160px; }
-  .statsBar { position: relative; bottom: auto; }
+  .hero      { padding: 100px 20px 160px; }
+  .statsBar  { position: relative; bottom: auto; }
   .scrollCue { display: none; }
 }
