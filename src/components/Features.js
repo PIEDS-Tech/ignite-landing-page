@@ -4,7 +4,7 @@ import siteContent from '@/data/siteContent';
 export default function Features() {
   const { about } = siteContent;
   return (
-    <section className={styles.section}>
+    <section id="about" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.header}>
           <div className={styles.label}>About IGNITE 2025</div>

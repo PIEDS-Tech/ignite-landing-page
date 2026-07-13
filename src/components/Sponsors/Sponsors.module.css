@@ -20,6 +20,7 @@
   position: relative;
   overflow: hidden;
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .marqueeContainer::before,
@@ -61,12 +62,14 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-25%);
   }
 }
 
 .logo {
   height: 26px;
+  width: 120px;
+  object-fit: contain;
   opacity: 0.6;
   filter: grayscale(100%) contrast(200%);
   transition: opacity 0.3s, filter 0.3s;

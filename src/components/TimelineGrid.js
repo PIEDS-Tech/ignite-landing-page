@@ -2,7 +2,7 @@ import styles from './TimelineGrid.module.css';
 
 export default function TimelineGrid() {
   return (
-    <section className={styles.section}>
+    <section id="agenda" className={styles.section}>
       <div className={styles.container}>
         <div className={styles.label}>Event Timeline</div>
         <h2 className={styles.title}>IGNITE Timeline</h2>

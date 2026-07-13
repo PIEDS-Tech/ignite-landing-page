@@ -1,17 +1,157 @@
-.section { padding: 120px 0; background: #3d2800; color: #efead3; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.label { font-size: 0.75rem; text-transform: uppercase; font-weight: 600; margin-bottom: 40px; text-align: right; color: rgba(239, 234, 211, 0.5); }
-.content { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 80px; gap: 40px; }
-.title { font-size: 2.5rem; font-weight: 500; max-width: 600px; line-height: 1.1; }
+.section {
+  padding: 120px 0 100px;
+  background: #fff8f3;
+  overflow: hidden;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 40px;
+  text-align: right;
+  color: var(--color-text-muted);
+  letter-spacing: 1.5px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 72px;
+  gap: 40px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  max-width: 560px;
+  line-height: 1.1;
+  color: var(--color-text);
+}
+
 .descBlock { max-width: 400px; }
-.desc { font-size: 0.9rem; color: rgba(239, 234, 211, 0.7); line-height: 1.6; }
-.grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: rgba(239, 234, 211, 0.1); border: 1px solid rgba(239, 234, 211, 0.1); }
-.card { background: #3d2800; padding: 32px 24px; display: flex; flex-direction: column; }
-.cardLarge { grid-column: span 2; position: relative; overflow: hidden; }
-.cardHeader { display: flex; justify-content: space-between; margin-bottom: 40px; align-items: flex-start; }
-.num { font-size: 0.75rem; font-weight: 600; color: rgba(239, 234, 211, 0.5); }
-.cardTitle { font-size: 1.1rem; font-weight: 500; margin: 0; }
-.cardDesc { font-size: 0.85rem; color: rgba(239, 234, 211, 0.7); line-height: 1.5; margin-top: auto; max-width: 280px; }
-.cardImg { position: absolute; bottom: -20px; right: 20px; width: 200px; opacity: 0.5; }
-@media (max-width: 768px) { .content { flex-direction: column; } .grid { grid-template-columns: repeat(2, 1fr); } .cardLarge { grid-column: span 2; } }
-@media (max-width: 480px) { .grid { grid-template-columns: 1fr; } .cardLarge { grid-column: span 1; } }
+
+.desc {
+  font-size: 0.9rem;
+  color: var(--color-text-secondary);
+  line-height: 1.7;
+}
+
+/* ── Carousel ── */
+.carousel {
+  position: relative;
+  width: 100%;
+  padding-bottom: 52px;
+}
+
+.fadeLeft,
+.fadeRight {
+  position: absolute;
+  top: 0;
+  bottom: 52px;
+  width: 200px;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.fadeLeft {
+  left: 0;
+  background: linear-gradient(to right, #fff8f3, transparent);
+}
+
+.fadeRight {
+  right: 0;
+  background: linear-gradient(to left, #fff8f3, transparent);
+}
+
+.stage {
+  position: relative;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Card ── */
+.card {
+  position: absolute;
+  width: 280px;
+  height: 320px;
+  border-radius: 20px;
+  padding: 36px 28px;
+  background: #fff;
+  border: 1px solid var(--color-border);
+  display: flex;
+  flex-direction: column;
+  will-change: transform, opacity;
+  user-select: none;
+}
+
+.cardCenter {
+  background: #fff;
+  border-color: var(--color-accent);
+  box-shadow: 0 20px 60px rgba(217, 64, 32, 0.12);
+}
+
+.num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-accent);
+  letter-spacing: 2px;
+  margin-bottom: 32px;
+  opacity: 0.6;
+}
+
+.cardTitle {
+  font-size: 1.45rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+  color: var(--color-text);
+}
+
+.cardDesc {
+  font-size: 0.85rem;
+  color: var(--color-text-secondary);
+  line-height: 1.65;
+}
+
+/* ── Dots ── */
+.dots {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.dotActive {
+  background: var(--color-accent);
+  transform: scale(1.5);
+}
+
+@media (max-width: 768px) {
+  .content { flex-direction: column; }
+  .card    { width: 240px; height: 280px; }
+  .fadeLeft, .fadeRight { width: 80px; }
+}

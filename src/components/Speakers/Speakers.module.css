@@ -87,7 +87,7 @@
   left: 0;
   right: 0;
   height: 65%;
-  background: linear-gradient(to top, rgba(61, 40, 0, 0.95) 0%, rgba(61, 40, 0, 0.4) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(26, 5, 38, 0.95) 0%, rgba(26, 5, 38, 0.4) 50%, transparent 100%);
   z-index: 1;
   pointer-events: none;
 }

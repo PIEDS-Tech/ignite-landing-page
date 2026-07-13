@@ -1,46 +1,126 @@
-import siteContent from '@/data/siteContent';
 import styles from './Footer.module.css';
 
-export default function Footer() {
-  const { footer, nav } = siteContent;
+const NAV_COLS = [
+  {
+    heading: 'Event',
+    links: [
+      { label: 'About IGNITE',  href: '/#about' },
+      { label: 'Speakers',      href: '/#speakers' },
+      { label: 'Agenda',        href: '/#agenda' },
+      { label: 'Venue',         href: '/#venue' },
+    ],
+  },
+  {
+    heading: 'Participate',
+    links: [
+      { label: 'Apply Now',        href: '/#venue' },
+      { label: 'Sponsor Us',       href: '#' },
+      { label: 'Become a Mentor',  href: '#' },
+      { label: 'Partner with Us',  href: '#' },
+    ],
+  },
+  {
+    heading: 'Connect',
+    links: [
+      { label: 'Twitter / X',  href: '#' },
+      { label: 'LinkedIn',     href: '#' },
+      { label: 'Instagram',    href: '#' },
+      { label: 'Contact Us',   href: '#' },
+    ],
+  },
+];
 
+const LEGAL = ['Privacy Policy', 'Terms of Service', 'Code of Conduct'];
+
+export default function Footer() {
   return (
     <footer className={styles.footer}>
-      <div className={styles.container}>
-        <div className={styles.brandText} aria-hidden="true">IGNITE</div>
 
-        <p className={styles.tagline}>{footer.tagline}</p>
+      {/* ── Top strip ── */}
+      <div className={styles.top}>
+        <div className={styles.container}>
 
-        <div className={styles.links}>
-          {footer.links.map((link, i) => (
-            <a key={i} href={link.href} className={styles.link}>
-              {link.label}
-            </a>
+          {/* Brand col */}
+          <div className={styles.brand}>
+            <div className={styles.brandLogo}>
+              <img src="/ignite-logo.png" alt="IGNITE" className={styles.brandIcon} />
+              <span className={styles.brandName}>IGNITE</span>
+            </div>
+            <p className={styles.brandDesc}>
+              India's most intense startup sprint — 6 days, 100 innovators,
+              and more than 20 MVPs launched from the beaches of&nbsp;Goa.
+            </p>
+            <div className={styles.badge}>
+              <span className={styles.badgeDot} />
+              Applications open · Sep 7–12, 2026
+            </div>
+          </div>
+
+          {/* Nav cols */}
+          {NAV_COLS.map((col) => (
+            <div key={col.heading} className={styles.col}>
+              <p className={styles.colHeading}>{col.heading}</p>
+              <ul className={styles.colLinks}>
+                {col.links.map((l) => (
+                  <li key={l.label}>
+                    <a href={l.href} className={styles.colLink}>{l.label}</a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           ))}
-        </div>
 
-        <div className={styles.socialLinks}>
-          {footer.social.map((social, i) => (
-            <a key={i} href={social.href} className={styles.socialLink}>
-              {social.label}
+        </div>
+      </div>
+
+      {/* ── PIEDS strip ── */}
+      <div className={styles.piedsStrip}>
+        <div className={styles.container}>
+          <div className={styles.piedsLeft}>
+            <span className={styles.piedsLabel}>Organised by</span>
+            <a href="/pieds" className={styles.piedsName}>
+              PIEDS — Pilani Innovation &amp; Entrepreneurship Development Society
             </a>
-          ))}
-        </div>
-
-        <div className={styles.divider} />
-
-        <div className={styles.bottom}>
-          <p className={styles.copyright}>{footer.copyright}</p>
-          <a href="#hero" className={styles.backToTop}>
-            Back to top
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-              <path d="M8 12V4M4 8l4-4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <p className={styles.piedsDesc}>
+              The official innovation &amp; startup body of BITS Pilani, nurturing 300+ startups since 2004.
+            </p>
+          </div>
+          <a href="/pieds" className={styles.piedsLink}>
+            About PIEDS
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.6"
+                strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </a>
         </div>
       </div>
 
-      <div className={styles.glowOrb} aria-hidden="true" />
+      {/* ── Big wordmark ── */}
+      <div className={styles.wordmarkWrap} aria-hidden="true">
+        <span className={styles.wordmark}>IGNITE</span>
+      </div>
+
+      {/* ── Bottom bar ── */}
+      <div className={styles.bottom}>
+        <div className={styles.container}>
+          <p className={styles.copy}>© 2026 IGNITE · A PIEDS × BITS Pilani Event. All rights reserved.</p>
+
+          <div className={styles.legal}>
+            {LEGAL.map((l) => (
+              <a key={l} href="#" className={styles.legalLink}>{l}</a>
+            ))}
+          </div>
+
+          <a href="#hero" className={styles.backToTop}>
+            Back to top
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path d="M8 13V3M4 7l4-4 4 4" stroke="currentColor" strokeWidth="1.6"
+                strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </a>
+        </div>
+      </div>
+
     </footer>
   );
 }

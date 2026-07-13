@@ -1,4 +1,4 @@
-.section { padding: 60px 0 120px; background: #efead3; overflow: hidden; }
+.section { padding: 60px 0 120px; background: #f6f0ea; overflow: hidden; }
 .label { text-align: center; font-size: 0.75rem; text-transform: uppercase; font-weight: 600; margin-bottom: 40px; }
 .marquee { white-space: nowrap; margin-bottom: 60px; }
 .track { display: inline-block; animation: scroll 30s linear infinite; }

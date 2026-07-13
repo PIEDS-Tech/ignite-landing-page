@@ -1,31 +1,50 @@
-.section { padding: 120px 0; background: #efead3; }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-.label { 
-  display: inline-block; 
-  font-size: 0.75rem; 
-  text-transform: uppercase; 
-  letter-spacing: 1px; 
+.section {
+  padding: 140px 0;
+  background: var(--color-bg);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.label {
+  display: inline-block;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
   margin-bottom: 40px;
-  position: relative;
-  padding: 10px;
   font-weight: 600;
-  color: #3d2800;
+  color: var(--color-text-muted);
 }
+
 .text {
-  font-size: clamp(3rem, 6vw, 5.5rem);
-  font-weight: 500;
-  line-height: 1.1;
-  color: #3d2800;
+  font-size: clamp(2.6rem, 5.5vw, 5rem);
+  font-weight: 600;
+  line-height: 1.15;
   letter-spacing: -0.03em;
-  max-width: 1000px;
+  /* no global color — each char handles its own */
 }
+
+/* Lit character */
+.charLit {
+  color: var(--color-text);
+  transition: color 0.1s ease;
+}
+
+/* Dim (not yet highlighted) character */
+.charDim {
+  color: rgba(26, 5, 5, 0.15);
+  transition: color 0.1s ease;
+}
+
 .inlineImg {
   display: inline-block;
-  height: 0.8em;
-  width: 2em;
+  height: 0.75em;
+  width: 1.8em;
   object-fit: cover;
   border-radius: 100px;
   vertical-align: middle;
-  margin: 0 8px;
+  margin: 0 10px;
 }
-.faded { color: rgba(61, 40, 0, 0.3); }

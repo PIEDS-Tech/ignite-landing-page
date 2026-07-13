@@ -1,166 +1,346 @@
+/* ── Shell ── */
 .hero {
   position: relative;
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 140px 24px 80px;
-  background-image: url('https://framerusercontent.com/images/YgBvkDQV4AdpX2f13gFIh6I6NN0.jpg');
-  background-size: cover;
-  background-position: center;
+  padding: 140px 24px 180px;
 }
 
-.hero::after {
-  content: '';
+/* ── Parallax bg ── */
+.bg {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(239, 234, 211, 0.7);
+  inset: -14%;
+  background: url('/hero-bg.png') center center / cover no-repeat;
+  will-change: transform;
   z-index: 0;
 }
 
-.container {
-  position: relative;
+/* ── Overlays ── */
+.overlayTop {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 4, 4, 0.68) 0%,
+    rgba(20, 4, 4, 0.25) 38%,
+    transparent 60%
+  );
   z-index: 1;
-  max-width: 900px;
-  margin: 0 auto;
-  text-align: center;
+  pointer-events: none;
+}
+
+.overlayBottom {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(20, 4, 4, 0.80) 0%,
+    rgba(20, 4, 4, 0.25) 28%,
+    transparent 52%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ────────────────────────────────────────
+   LEFT EDGE TYPOGRAPHY
+   IGNITE vertical + 2026 horizontal
+──────────────────────────────────────── */
+.leftTypo {
+  position: absolute;
+  left: 32px;
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* width = IGNITE's computed column width so 2026 can anchor to it */
+  width: calc(100vh / 7);
+  will-change: transform;
+}
+
+/* Vertical IGNITE — fills full screen height */
+.igniteVert {
+  writing-mode: vertical-lr;
+  font-size: calc(100vh / 7);
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  line-height: 0.92;
+  color: #ffffff;
+  text-shadow: 0 4px 40px rgba(20, 4, 4, 0.45);
+  user-select: none;
+  margin: 0;
+  /* ensure the element fills its own column width */
+  align-self: flex-start;
+}
+
+/* Horizontal 2026 — left-aligned to the IGNITE column */
+.yearHoriz {
+  display: block;
+  font-size: clamp(0.75rem, 1.2vw, 1rem);
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: rgba(255, 210, 160, 0.85);
+  margin-top: 8px;
+  white-space: nowrap;
+  /* pull left to sit under the first character of IGNITE */
+  margin-left: 0;
+  padding-left: 0;
+}
+
+/* ── Centre content ── */
+.inner {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  max-width: 760px;
+  width: 100%;
+  will-change: transform;
 }
 
-.badge {
+/* ── Pills ── */
+.pills {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.pill {
   display: inline-flex;
   align-items: center;
-  padding: 8px 20px;
+  gap: 6px;
+  padding: 6px 16px;
   border-radius: 100px;
-  border: 1px solid var(--color-border);
-  background: var(--color-surface);
-  color: var(--color-text-secondary);
-  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(10px);
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.74rem;
   font-weight: 600;
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.liveDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 6px #4ade80;
+  animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+
+/* ── Watermark logo ── */
+.watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: clamp(320px, 55vw, 700px);
+  height: auto;
+  opacity: 0.07;
+  z-index: 1;
+  pointer-events: none;
+  user-select: none;
+  filter: blur(1px) brightness(2);
+}
+
+/* ── Tagline ── */
+.tagline {
+  font-size: clamp(1.2rem, 2.8vw, 2rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+
+.em {
+  font-style: italic;
+  color: #ffd4a0;
+}
+
+/* ── Sub copy ── */
+.sub {
+  font-size: 0.96rem;
+  color: rgba(255, 255, 255, 0.52);
+  max-width: 460px;
+  line-height: 1.75;
   margin-bottom: 32px;
 }
 
-.headline {
-  font-size: clamp(3rem, 8vw, 5.5rem);
-  font-weight: 800;
-  color: var(--color-text);
-  line-height: 1.05;
-  margin: 0 0 24px;
-  letter-spacing: -1px;
-}
-
-.headlineAccent {
-  color: var(--color-accent);
-}
-
-.description {
-  font-size: 1.15rem;
-  color: var(--color-text-secondary);
-  line-height: 1.7;
-  max-width: 600px;
-  margin: 0 0 40px;
-  font-weight: 500;
-}
-
+/* ── CTAs ── */
 .ctas {
   display: flex;
-  gap: 16px;
+  gap: 12px;
   align-items: center;
   flex-wrap: wrap;
   justify-content: center;
-  margin-bottom: 64px;
+  margin-bottom: 36px;
 }
 
 .ctaPrimary {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 16px 36px;
-  background: var(--color-accent);
-  color: var(--color-button-text);
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 100px;
+  padding: 14px 34px;
+  background: #ffffff;
+  color: #8a1520;
+  font-size: 0.9rem;
+  font-weight: 800;
+  border-radius: 10px;
   text-decoration: none;
-  transition: box-shadow 0.3s, transform 0.2s;
+  box-shadow: 0 4px 20px rgba(20, 4, 4, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
 }
 
 .ctaPrimary:hover {
-  box-shadow: 0 8px 24px rgba(223, 101, 53, 0.3);
+  background: #fff5ee;
   transform: translateY(-2px);
+  box-shadow: 0 10px 32px rgba(20, 4, 4, 0.45);
 }
 
 .ctaSecondary {
   display: inline-flex;
   align-items: center;
-  padding: 16px 36px;
+  padding: 14px 28px;
   background: transparent;
-  color: var(--color-text);
-  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.76);
+  font-size: 0.9rem;
   font-weight: 600;
-  border: 1px solid var(--color-text);
-  border-radius: 100px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
   text-decoration: none;
-  transition: border-color 0.3s, color 0.3s, background 0.3s;
+  backdrop-filter: blur(6px);
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
 
 .ctaSecondary:hover {
-  background: var(--color-text);
-  color: var(--color-bg);
+  border-color: rgba(255, 255, 255, 0.65);
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
 }
 
-.stats {
+/* ── Social proof ── */
+.proof {
   display: flex;
-  gap: 0;
   align-items: center;
+  gap: 12px;
+}
+
+.avatars { display: flex; }
+
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.4);
+  object-fit: cover;
+  margin-left: -8px;
+  background: rgba(255,255,255,0.15);
+}
+
+.avatars .avatar:first-child { margin-left: 0; }
+
+.proofText {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.55);
+  text-align: left;
+  line-height: 1.4;
+}
+
+.proofText strong {
+  color: rgba(255, 255, 255, 0.88);
+  font-weight: 700;
+}
+
+/* ── Stats bar ── */
+.statsBar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  display: flex;
+  align-items: stretch;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(20, 4, 4, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  will-change: transform;
 }
 
 .stat {
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 36px;
-  border-left: 1px solid var(--color-border);
+  justify-content: center;
+  padding: 20px 16px;
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 4px;
 }
 
-.stat:first-child {
-  border-left: none;
-}
+.stat:last-child { border-right: none; }
 
-.statValue {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: var(--color-text);
+.statVal {
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: -0.02em;
   line-height: 1;
-  margin-bottom: 4px;
 }
 
-.statLabel {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
+.statLbl {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
 }
 
+/* ── Scroll cue ── */
+.scrollCue {
+  position: absolute;
+  bottom: 90px;
+  right: 36px;
+  z-index: 2;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 52px;
+  background: linear-gradient(to bottom, transparent, rgba(255,255,255,0.4), transparent);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.5) translateY(-8px); }
+  50%       { opacity: 1;   transform: scaleY(1)   translateY(0); }
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .leftTypo { display: none; }
+}
+
 @media (max-width: 768px) {
-  .hero {
-    padding: 120px 20px 60px;
-    min-height: auto;
-  }
-  .stats {
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
-  .stat {
-    border-left: none;
-    padding: 0 20px;
-  }
+  .hero     { padding: 120px 20px 160px; }
+  .statsBar { position: relative; bottom: auto; }
+  .scrollCue { display: none; }
 }
