@@ -7,6 +7,6 @@ export const metadata = {
 
 export default function Home() {
   return (
-    <div dangerouslySetInnerHTML={{ __html: framerContent }} />
+    <div suppressHydrationWarning dangerouslySetInnerHTML={{ __html: framerContent }} />
   );
 }

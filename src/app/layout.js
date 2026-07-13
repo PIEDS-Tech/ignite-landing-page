@@ -5,7 +5,6 @@ import path from 'path';
 
 const inter = Inter({ subsets: ["latin"] });
 
-// Load scripts from JSON
 let scripts = [];
 try {
   const scriptsPath = path.join(process.cwd(), 'scripts.json');
@@ -15,7 +14,6 @@ try {
   console.error("Error loading scripts", e);
 }
 
-// Function to parse the raw script tag string to extract attributes and content
 function parseScriptTag(scriptString) {
   const match = scriptString.match(/<script\b([^>]*)>([\s\S]*?)<\/script>/i);
   if (!match) return null;
@@ -25,7 +23,6 @@ function parseScriptTag(scriptString) {
   
   const attrs = {};
   
-  // Extract specific known attributes
   if (attrsString.includes('type="framer/appear"')) attrs.type = "framer/appear";
   if (attrsString.includes('type="framer/handover"')) attrs.type = "framer/handover";
   if (attrsString.includes('type="module"')) attrs.type = "module";
@@ -55,15 +52,20 @@ function parseScriptTag(scriptString) {
   return { attrs, content };
 }
 
+export const metadata = {
+  title: 'IGNITE 26 - India\'s Most Intense Startup Sprint',
+  description: '6 Days. 100 Innovators. 20+ MVPs. Build and launch your MVP from the beaches of Goa.',
+};
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <style dangerouslySetInnerHTML={{__html: `
           body { margin: 0; padding: 0; box-sizing: border-box; }
         `}} />
       </head>
-      <body className={inter.className}>
+      <body className={inter.className} suppressHydrationWarning>
         {children}
         
         {scripts.map((scriptString, index) => {
