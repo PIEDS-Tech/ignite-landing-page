@@ -1,7 +1,14 @@
+/* ── Sticky scroll zone — 2× viewport gives scroll room for the logo reveal ── */
+.heroScrollZone {
+  position: relative;
+  height: 200vh;
+}
+
 /* ── Shell ── */
 .hero {
-  position: relative;
-  min-height: 100vh;
+  position: sticky;
+  top: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -192,7 +199,7 @@
   transform-origin: bottom center;
 }
 
-/* ── Watermark logo ── */
+/* ── Watermark logo — transform/opacity/filter driven by JS on scroll ── */
 .watermark {
   position: absolute;
   top: 50%;
@@ -205,6 +212,7 @@
   pointer-events: none;
   user-select: none;
   filter: blur(1px) brightness(2);
+  will-change: transform, opacity, filter;
 }
 
 /* ── Tagline ── */
