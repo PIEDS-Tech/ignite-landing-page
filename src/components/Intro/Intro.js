@@ -15,14 +15,12 @@ const GEO_URL = 'https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json'
 const PILANI = [75.6, 28.37]; // BITS Pilani — [lon, lat]
 const DUBAI  = [55.3, 25.2];  // Dubai, UAE
 
-// Rendered inside ComposableMap so it can call useMapContext()
 function FlightLayer({ flying, landed }) {
   const { projection } = useMapContext();
 
   const [pilX, pilY] = projection(PILANI);
   const [dubX, dubY] = projection(DUBAI);
 
-  // Arc control point dips south over the Arabian Sea
   const cpX = (pilX + dubX) / 2;
   const cpY = (pilY + dubY) / 2 + 90;
 
@@ -30,7 +28,6 @@ function FlightLayer({ flying, landed }) {
 
   return (
     <g>
-      {/* Animated route line */}
       <path
         className={`${styles.route} ${flying ? styles.routeDraw : ''}`}
         d={flightPath}
@@ -44,37 +41,27 @@ function FlightLayer({ flying, landed }) {
 
       {/* ── Pilani marker ── */}
       <g transform={`translate(${pilX},${pilY})`}>
-        <circle className={styles.pulse} r="6"
-          fill="none" stroke="rgba(255,210,160,0.5)" strokeWidth="1.5" />
+        <circle className={styles.pulse} r="6" fill="none" stroke="rgba(255,210,160,0.5)" strokeWidth="1.5" />
         <circle r="4.5" fill="rgba(255,210,160,0.9)" />
         <circle r="2" fill="#fff" />
       </g>
-      <text x={pilX + 9} y={pilY - 5}  className={styles.cityLabel}>Pilani</text>
-      <text x={pilX + 9} y={pilY + 9}  className={styles.countryLabel}>India</text>
+      <text x={pilX + 9} y={pilY - 5} className={styles.cityLabel}>Pilani</text>
+      <text x={pilX + 9} y={pilY + 9} className={styles.countryLabel}>India</text>
 
       {/* ── Dubai marker ── */}
       <g transform={`translate(${dubX},${dubY})`}>
-        <circle
-          className={`${styles.pulse} ${landed ? styles.pulseLand : ''}`}
-          r="6" fill="none" stroke="rgba(255,210,160,0.5)" strokeWidth="1.5"
-        />
+        <circle className={`${styles.pulse} ${landed ? styles.pulseLand : ''}`} r="6" fill="none" stroke="rgba(255,210,160,0.5)" strokeWidth="1.5" />
         <circle r="4.5" fill="rgba(255,210,160,0.9)" />
         <circle r="2" fill="#fff" />
       </g>
-      <text x={dubX + 9} y={dubY - 5}  className={styles.cityLabel}>Dubai</text>
-      <text x={dubX + 9} y={dubY + 9}  className={styles.countryLabel}>UAE</text>
+      <text x={dubX + 9} y={dubY - 5} className={styles.cityLabel}>Dubai</text>
+      <text x={dubX + 9} y={dubY + 9} className={styles.countryLabel}>UAE</text>
 
-      {/* ── Paper plane ── */}
       {flying && <AnimatedPlane path={flightPath} />}
 
-      {/* ── Arrival badge ── */}
       {landed && (
         <g className={styles.arrivalGroup}>
-          <text
-            className={styles.arrivalText}
-            x="450" y="478"
-            textAnchor="middle"
-          >
+          <text className={styles.arrivalText} x="450" y="478" textAnchor="middle">
             ✦&nbsp; IGNITE 2026 · Dubai &nbsp;✦
           </text>
         </g>
@@ -83,7 +70,6 @@ function FlightLayer({ flying, landed }) {
   );
 }
 
-// Separate component so useEffect fires on mount (when flying becomes true)
 function AnimatedPlane({ path }) {
   const animRef = useRef(null);
   useEffect(() => {
@@ -92,9 +78,8 @@ function AnimatedPlane({ path }) {
 
   return (
     <g className={styles.plane}>
-      {/* Plane body points +X; rotate="auto" aligns nose to path tangent */}
       <polygon points="0,-8 16,0 0,5" fill="white" opacity="0.95" />
-      <polygon points="0,-8 0,5 -5,2"  fill="rgba(255,210,160,0.8)" />
+      <polygon points="0,-8 0,5 -5,2" fill="rgba(255,210,160,0.8)" />
       <animateMotion
         ref={animRef}
         dur="2.3s"
@@ -111,22 +96,82 @@ function AnimatedPlane({ path }) {
 }
 
 export default function Intro({ onComplete }) {
-  const [phase, setPhase] = useState('map');
+  const [phase, setPhase] = useState('zoomIn');
+  const [cameraZoom, setCameraZoom] = useState(4.8); // Start zoomed in on Pilani
+  const [cameraCenter, setCameraCenter] = useState(PILANI); // Start at Pilani
   const cb = useRef(onComplete);
   useEffect(() => { cb.current = onComplete; }, [onComplete]);
 
   useEffect(() => {
     const timers = [
-      setTimeout(() => setPhase('fly'),  900),
+      // 0-0.9s: zoomed in on Pilani
+      setTimeout(() => setPhase('zoomOut'), 900),
+      // 0.9-2.5s: zoom out and pan to Dubai
+      setTimeout(() => setPhase('fly'), 900),
+      // 2.5-3.2s: zoom back in on Dubai
       setTimeout(() => setPhase('land'), 3200),
+      // 3.2-3.75s: landed state
       setTimeout(() => setPhase('exit'), 3750),
-      setTimeout(() => cb.current(),    4350),
+      // 3.75+: fade out
+      setTimeout(() => cb.current(), 4350),
     ];
     return () => timers.forEach(clearTimeout);
   }, []);
 
-  const flying  = ['fly', 'land', 'exit'].includes(phase);
-  const landed  = ['land', 'exit'].includes(phase);
+  // Camera animation logic
+  useEffect(() => {
+    if (phase === 'zoomOut' || phase === 'fly') {
+      const startTime = Date.now();
+      const duration = 1600; // 1.6s for zoom out + pan
+
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(1, elapsed / duration);
+
+        // Ease out curve
+        const easeProgress = 1 - Math.pow(1 - progress, 3);
+
+        // Zoom from 4.8 → 0.8 (zoom out)
+        setCameraZoom(4.8 - (4.8 - 0.8) * easeProgress);
+
+        // Pan from Pilani → Dubai
+        setCameraCenter([
+          PILANI[0] - (PILANI[0] - DUBAI[0]) * easeProgress,
+          PILANI[1] - (PILANI[1] - DUBAI[1]) * easeProgress,
+        ]);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
+    } else if (phase === 'land') {
+      const startTime = Date.now();
+      const duration = 600; // 0.6s for zoom in
+
+      const animate = () => {
+        const elapsed = Date.now() - startTime;
+        const progress = Math.min(1, elapsed / duration);
+
+        // Ease in curve
+        const easeProgress = Math.pow(progress, 3);
+
+        // Zoom from 0.8 → 4.8 (zoom in on Dubai)
+        setCameraZoom(0.8 + (4.8 - 0.8) * easeProgress);
+        setCameraCenter(DUBAI);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
+    }
+  }, [phase]);
+
+  const flying = ['zoomOut', 'fly', 'land', 'exit'].includes(phase);
+  const landed = ['land', 'exit'].includes(phase);
   const exiting = phase === 'exit';
 
   const skip = () => {
@@ -135,30 +180,23 @@ export default function Intro({ onComplete }) {
   };
 
   return (
-    <div
-      className={`${styles.overlay} ${exiting ? styles.exit : ''}`}
-      role="presentation"
-    >
+    <div className={`${styles.overlay} ${exiting ? styles.exit : ''}`} role="presentation">
       <ComposableMap
         className={styles.map}
         width={900}
         height={500}
         projectionConfig={{
-          center: [65, 25],
-          scale: 720,
+          center: cameraCenter,
+          scale: cameraZoom * 450, // Scale multiplier for zoom effect
         }}
       >
-        {/* Outer sphere */}
         <Sphere stroke="rgba(255,255,255,0.06)" strokeWidth={0.5} fill="none" />
-
-        {/* Lat / lon grid */}
         <Graticule stroke="rgba(255,255,255,0.04)" strokeWidth={0.5} />
 
-        {/* World countries */}
         <Geographies geography={GEO_URL}>
           {({ geographies }) =>
             geographies.map(geo => {
-              const id    = parseInt(geo.id);
+              const id = parseInt(geo.id);
               const isIND = id === 356;
               const isUAE = id === 784;
               return (
@@ -167,12 +205,12 @@ export default function Intro({ onComplete }) {
                   geography={geo}
                   style={{
                     default: {
-                      fill:        isIND || isUAE ? 'rgba(255,210,160,0.11)' : 'rgba(255,255,255,0.05)',
-                      stroke:      isIND || isUAE ? 'rgba(255,210,160,0.28)' : 'rgba(255,255,255,0.11)',
+                      fill: isIND || isUAE ? 'rgba(255,210,160,0.11)' : 'rgba(255,255,255,0.05)',
+                      stroke: isIND || isUAE ? 'rgba(255,210,160,0.28)' : 'rgba(255,255,255,0.11)',
                       strokeWidth: 0.5,
-                      outline:     'none',
+                      outline: 'none',
                     },
-                    hover:   { outline: 'none' },
+                    hover: { outline: 'none' },
                     pressed: { outline: 'none' },
                   }}
                 />
@@ -181,16 +219,13 @@ export default function Intro({ onComplete }) {
           }
         </Geographies>
 
-        {/* Animated flight layer (uses useMapContext inside) */}
         <FlightLayer flying={flying} landed={landed} />
       </ComposableMap>
 
-      {/* Logo watermark */}
       <div className={styles.logoWrap}>
         <img src="/ignite-logo.png" alt="" className={styles.logo} />
       </div>
 
-      {/* Skip */}
       <button className={styles.skip} onClick={skip} aria-label="Skip intro">
         skip
       </button>

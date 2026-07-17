@@ -109,7 +109,7 @@ export default function Hero() {
 
           {/* Tagline */}
           <p className={styles.tagline}>
-            Building Tomorrow,&nbsp;<em className={styles.em}>Together.</em>
+            Building Tomorrow,<br /><em className={styles.em}>Together.</em>
           </p>
 
           {/* Sub */}
