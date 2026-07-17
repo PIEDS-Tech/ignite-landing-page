@@ -1,11 +1,16 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Intro from './Intro';
 
 export default function IntroWrapper() {
-  const [show, setShow] = useState(true);
+  // `mounted` starts false so the server renders nothing — prevents the
+  // d3-geo floating-point path hydration mismatch from react-simple-maps.
+  const [mounted, setMounted] = useState(false);
+  const [show,    setShow]    = useState(true);
 
-  if (!show) return null;
+  useEffect(() => { setMounted(true); }, []);
+
+  if (!mounted || !show) return null;
 
   return <Intro onComplete={() => setShow(false)} />;
 }
