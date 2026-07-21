@@ -12,6 +12,9 @@ export default function Features() {
             <h2 className={styles.title}>{about.title} <em>{about.titleAccent}</em></h2>
             <p className={styles.desc}>{about.description}</p>
           </div>
+          <div className={styles.lede}>
+            {about.lede.map((para, i) => <p key={i}>{para}</p>)}
+          </div>
         </div>
         <div className={styles.grid}>
           {about.audiences.map((item, i) => (

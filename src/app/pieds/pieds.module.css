@@ -1,8 +1,8 @@
 /* ── Shared ── */
 .container {
-  max-width: 1200px;
+  max-width: var(--page-max);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--gutter);
 }
 
 .sectionLabel {
@@ -16,12 +16,12 @@
 }
 
 .sectionTitle {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.7rem, 4vw, 3rem);
   font-weight: 700;
   color: var(--color-text);
   line-height: 1.15;
   letter-spacing: -0.02em;
-  margin-bottom: 48px;
+  margin-bottom: clamp(28px, 5vw, 48px);
 }
 
 .italic { font-style: italic; color: var(--color-accent); }
@@ -39,10 +39,12 @@
 .hero {
   position: relative;
   min-height: 92vh;
+  min-height: 92svh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  padding-bottom: 80px;
+  padding-top: 120px;
+  padding-bottom: clamp(56px, 9vw, 80px);
 }
 
 .heroBg {
@@ -67,10 +69,10 @@
 .heroInner {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
+  max-width: var(--page-max);
   width: 100%;
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--gutter);
 }
 
 .heroEyebrow {
@@ -84,7 +86,7 @@
 }
 
 .heroTitle {
-  font-size: clamp(2.8rem, 6vw, 5.5rem);
+  font-size: clamp(1.9rem, 6vw, 5.5rem);
   font-weight: 900;
   color: #fff;
   line-height: 1.05;
@@ -104,7 +106,7 @@
 
 .heroAbbre {
   position: absolute;
-  right: 32px;
+  right: var(--gutter);
   bottom: 0;
   font-size: clamp(6rem, 14vw, 14rem);
   font-weight: 900;
@@ -131,11 +133,13 @@
 }
 
 .statCard {
-  padding: 48px 32px;
+  padding: clamp(28px, 4vw, 48px) clamp(16px, 2.6vw, 32px);
   border-right: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   display: flex;
   flex-direction: column;
   gap: 8px;
+  min-width: 0;
 }
 
 .statValue {
@@ -147,7 +151,7 @@
 }
 
 .statLabel {
-  font-size: 0.78rem;
+  font-size: clamp(0.66rem, 1.4vw, 0.78rem);
   color: rgba(255, 248, 243, 0.38);
   font-weight: 600;
   text-transform: uppercase;
@@ -158,14 +162,14 @@
    ABOUT
 ══════════════════════════ */
 .about {
-  padding: 120px 0;
+  padding: var(--section-pad-y) 0;
   background: var(--color-bg);
 }
 
 .aboutGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 80px);
   align-items: center;
 }
 
@@ -190,7 +194,7 @@
 
 .aboutImg {
   width: 100%;
-  height: 480px;
+  height: clamp(260px, 46vw, 480px);
   object-fit: cover;
   border-radius: 16px;
   display: block;
@@ -223,13 +227,13 @@
    PILLARS
 ══════════════════════════ */
 .pillars {
-  padding: 100px 0;
+  padding: var(--section-pad-y) 0;
   background: var(--color-surface);
 }
 
 .pillarsGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 1px;
   background: var(--color-border);
   border: 1px solid var(--color-border);
@@ -239,7 +243,7 @@
 
 .pillarCard {
   background: var(--color-surface);
-  padding: 40px 28px;
+  padding: clamp(26px, 3.4vw, 40px) clamp(20px, 2.4vw, 28px);
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -266,20 +270,20 @@
    PAST EVENTS
 ══════════════════════════ */
 .events {
-  padding: 120px 0;
+  padding: var(--section-pad-y) 0;
   background: var(--color-bg);
 }
 
 .eventsList {
   display: flex;
   flex-direction: column;
-  gap: 80px;
+  gap: clamp(48px, 7vw, 80px);
 }
 
 .eventRow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 64px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 64px);
   align-items: center;
 }
 
@@ -292,7 +296,7 @@
 
 .eventPhoto {
   width: 100%;
-  height: 380px;
+  height: clamp(220px, 38vw, 380px);
   object-fit: cover;
   border-radius: 16px;
   display: block;
@@ -361,7 +365,7 @@
 ══════════════════════════ */
 .cta {
   background: linear-gradient(160deg, #7a1020 0%, #9a1828 50%, #b03030 100%);
-  padding: 120px 24px;
+  padding: var(--section-pad-y) var(--gutter);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -432,4 +436,15 @@
   .pillarsGrid     { grid-template-columns: 1fr; }
   .statsSection .container { grid-template-columns: 1fr 1fr; }
   .heroAbbre       { display: none; }
+  .heroSub         { font-size: 0.95rem; }
+  .body            { font-size: 0.92rem; }
+  .eventDesc       { font-size: 0.9rem; }
+  .aboutImgBadge   { left: 12px; right: 12px; bottom: -18px; font-size: 0.76rem; }
+  .ctaBtn          { width: 100%; justify-content: center; }
+}
+
+/* Landscape phones — the near-full-height hero would otherwise bury the page */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero      { min-height: 0; padding-top: 104px; }
+  .heroAbbre { display: none; }
 }

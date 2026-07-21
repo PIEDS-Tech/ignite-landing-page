@@ -217,7 +217,7 @@ export default function PiedsPage() {
           <img src="/ignite-logo.png" alt="" className={styles.ctaLogo} aria-hidden="true" />
           <h2 className={styles.ctaTitle}>Ready to build your startup?</h2>
           <p className={styles.ctaSub}>Apply for IGNITE 2026 — India's most intense startup sprint, brought to you by PIEDS × BITS Pilani.</p>
-          <a href="/#tickets" className={styles.ctaBtn}>Apply for IGNITE '26</a>
+          <a href="/#get-involved" className={styles.ctaBtn}>Apply for IGNITE '26</a>
         </div>
       </section>
 

@@ -120,8 +120,9 @@ export default function Impact() {
               data-i={i}
               data-span={span}
               className={`${styles.frame} ${ioVisible ? styles.ioIn : ''}`}
+              /* Column span lives in CSS (keyed off data-span) so media queries
+                 can collapse it — an inline style here would outrank them. */
               style={{
-                gridColumn: span > 1 ? `span ${span}` : undefined,
                 '--rot':      `${rot}deg`,
                 '--tx':       `${tx}px`,
                 '--io-delay': `${i * 65}ms`,

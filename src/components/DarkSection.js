@@ -16,19 +16,20 @@ const N = items.length;
 const SIDE = 2;
 const VISIBLE = SIDE * 2 + 1; // 5
 
-// Per-position visual config
+// Per-position visual config. `x` is a multiple of --slot (defined in CSS per
+// breakpoint) rather than a fixed pixel value, so the fan narrows on small screens.
 const POSITIONS = {
-  '-2': { scale: 0.70, opacity: 0.30, x: -520 },
-  '-1': { scale: 0.85, opacity: 0.65, x: -270 },
-   '0': { scale: 1.00, opacity: 1.00, x:    0 },
-   '1': { scale: 0.85, opacity: 0.65, x:  270 },
-   '2': { scale: 0.70, opacity: 0.30, x:  520 },
+  '-2': { scale: 0.70, opacity: 0.30, x: -1.93 },
+  '-1': { scale: 0.85, opacity: 0.65, x: -1 },
+   '0': { scale: 1.00, opacity: 1.00, x:  0 },
+   '1': { scale: 0.85, opacity: 0.65, x:  1 },
+   '2': { scale: 0.70, opacity: 0.30, x:  1.93 },
 };
 
 function cardStyle(offset) {
-  const cfg = POSITIONS[String(offset)] ?? { scale: 0.5, opacity: 0, x: offset * 260 };
+  const cfg = POSITIONS[String(offset)] ?? { scale: 0.5, opacity: 0, x: offset };
   return {
-    transform: `translateX(${cfg.x}px) scale(${cfg.scale})`,
+    transform: `translateX(calc(var(--slot) * ${cfg.x})) scale(${cfg.scale})`,
     opacity: cfg.opacity,
     zIndex: 10 - Math.abs(offset),
     transition: 'transform 0.55s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.55s ease',

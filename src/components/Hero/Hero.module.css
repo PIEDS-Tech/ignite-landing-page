@@ -2,19 +2,22 @@
 .heroScrollZone {
   position: relative;
   height: 200vh;
+  height: 200svh;
 }
 
 /* ── Shell ── */
 .hero {
   position: sticky;
   top: 0;
+  /* svh keeps the hero from jumping as mobile browser chrome hides/reveals */
   height: 100vh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  padding: 140px 24px 180px;
+  padding: clamp(96px, 14vh, 140px) var(--gutter) clamp(120px, 20vh, 180px);
 }
 
 /* ── Parallax bg ── */
@@ -59,7 +62,7 @@
 ──────────────────────────────────────── */
 .leftTypo {
   position: absolute;
-  left: 32px;
+  left: max(20px, env(safe-area-inset-left));
   top: 0;
   bottom: 0;
   z-index: 2;
@@ -67,14 +70,14 @@
   flex-direction: column;
   justify-content: center;
   /* width = IGNITE's computed column width so 2026 can anchor to it */
-  width: calc(100vh / 7);
+  width: min(100svh / 7, 14vw);
   will-change: transform;
 }
 
-/* Vertical IGNITE — fills full screen height */
+/* Vertical IGNITE — fills the screen height, but never crowds the centre column */
 .igniteVert {
   writing-mode: vertical-lr;
-  font-size: calc(100vh / 7);
+  font-size: min(100svh / 7, 14vw);
   font-weight: 900;
   letter-spacing: -0.04em;
   line-height: 0.92;
@@ -390,6 +393,12 @@
 }
 
 /* ── Responsive ── */
+@media (max-width: 1024px) {
+  /* Tuck the silhouettes in so they stop colliding with the centre column */
+  .silhouetteTree  { height: clamp(200px, 40vh, 400px); }
+  .silhouetteCamel { right: calc(4vw + clamp(90px, 20vw, 220px)); }
+}
+
 @media (max-width: 900px) {
   /* Switch from absolute vertical sidebar to inline horizontal row */
   .leftTypo {
@@ -407,7 +416,7 @@
 
   .igniteVert {
     writing-mode: horizontal-tb;
-    font-size: clamp(3.5rem, 16vw, 6rem);
+    font-size: clamp(3rem, 15vw, 6rem);
     line-height: 1;
   }
 
@@ -422,10 +431,67 @@
 }
 
 @media (max-width: 768px) {
-  .hero              { padding: 100px 20px 160px; }
-  .statsBar          { position: relative; bottom: auto; }
-  .scrollCue         { display: none; }
+  /* Below this width the hero grows with its content instead of being
+     clipped to one viewport — the sticky/reveal choreography is dropped. */
+  .heroScrollZone { height: auto; }
+
+  .hero {
+    position: relative;
+    height: auto;
+    min-height: 100svh;
+    padding: 108px var(--gutter) 0;
+  }
+
+  .bg { position: absolute; inset: 0; }
+
+  .statsBar {
+    position: relative;
+    bottom: auto;
+    margin: 40px calc(var(--gutter) * -1) 0;
+    flex-wrap: wrap;
+  }
+
+  /* 2×2 rather than four cramped columns */
+  .stat {
+    flex: 1 1 50%;
+    padding: 16px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .stat:nth-child(2n)     { border-right: none; }
+  .stat:nth-last-child(-n+2) { border-bottom: none; }
+
+  .scrollCue { display: none; }
+
   .silhouetteTree,
   .silhouetteCamel,
   .silhouetteCamelFlip { display: none; }
+
+  .watermark { width: min(80vw, 420px); }
+  .sub       { margin-bottom: 28px; }
+  .ctas      { margin-bottom: 28px; }
+}
+
+@media (max-width: 480px) {
+  .pills       { gap: 7px; margin-bottom: 22px; }
+  .pill        { font-size: 0.68rem; padding: 5px 12px; }
+  .tagline     { font-size: clamp(1.75rem, 9vw, 2.5rem); }
+  .sub         { font-size: 0.88rem; line-height: 1.65; }
+  .proof       { flex-direction: column; gap: 8px; }
+  .proofText   { text-align: center; }
+
+  /* Full-width CTAs are far easier to hit one-handed */
+  .ctas        { flex-direction: column; align-items: stretch; width: 100%; }
+  .ctaPrimary,
+  .ctaSecondary { justify-content: center; width: 100%; }
+}
+
+/* Landscape phones: very little vertical room, so shrink the type aggressively */
+@media (max-height: 520px) and (orientation: landscape) {
+  .hero        { min-height: 0; padding-top: 88px; padding-bottom: 32px; }
+  .igniteVert  { font-size: clamp(2rem, 8vh, 3rem); }
+  .tagline     { font-size: clamp(1.5rem, 6vh, 2.2rem); }
+  .sub         { display: none; }
+  .proof       { display: none; }
+  .scrollCue   { display: none; }
 }

@@ -17,12 +17,15 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--page-max);
   margin: 0 auto;
-  padding: 0 32px;
+  padding: 0 var(--gutter);
+  padding-left: max(var(--gutter), env(safe-area-inset-left));
+  padding-right: max(var(--gutter), env(safe-area-inset-right));
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 16px;
 }
 
 /* ── Logo ── */
@@ -52,7 +55,7 @@
 /* ── Nav links ── */
 .navLinks {
   display: flex;
-  gap: 36px;
+  gap: clamp(18px, 2.6vw, 36px);
   align-items: center;
 }
 
@@ -135,9 +138,14 @@
   top: 0; left: 0; right: 0; bottom: 0;
   background: rgba(255, 248, 243, 0.97);
   backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Short landscape phones need the menu itself to scroll */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 88px var(--gutter) 40px;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0.3s;
@@ -150,11 +158,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: clamp(18px, 4vh, 28px);
+  margin: auto;
 }
 
 .mobileLink {
-  font-size: 1.4rem;
+  font-size: clamp(1.1rem, 5vw, 1.4rem);
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -178,7 +187,13 @@
   text-transform: uppercase;
 }
 
-@media (max-width: 768px) {
+/* Five links plus a CTA stop fitting well before the classic tablet breakpoint */
+@media (max-width: 900px) {
   .navLinks, .ctaBtn { display: none; }
   .hamburger { display: flex; }
+}
+
+@media (max-width: 380px) {
+  .logoText { font-size: 0.9rem; letter-spacing: 1px; }
+  .logoIcon { width: 24px; height: 24px; }
 }

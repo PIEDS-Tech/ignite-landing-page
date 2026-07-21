@@ -7,9 +7,19 @@ export default function Hero() {
   const [scrollY, setScrollY] = useState(0);
   const [mouse, setMouse]     = useState({ x: 0, y: 0 });
   const [winH, setWinH]       = useState(900);
+  // Below 769px the hero is a normal flow section (see Hero.module.css), so the
+  // sticky scroll choreography is skipped entirely rather than animating nothing.
+  const [cinematic, setCinematic] = useState(false);
   const rafRef = useRef(null);
 
   useEffect(() => {
+    const mq     = window.matchMedia('(min-width: 769px)');
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const sync   = () => setCinematic(mq.matches && !reduce.matches);
+    sync();
+    mq.addEventListener('change', sync);
+    reduce.addEventListener('change', sync);
+
     setWinH(window.innerHeight);
     const onResize = () => setWinH(window.innerHeight);
     window.addEventListener('resize', onResize);
@@ -41,16 +51,20 @@ export default function Hero() {
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('mousemove', onMouse);
       window.removeEventListener('resize', onResize);
+      mq.removeEventListener('change', sync);
+      reduce.removeEventListener('change', sync);
     };
   }, []);
 
   // 0 → 1 as user scrolls through the sticky hero zone
-  const p = Math.min(1, Math.max(0, scrollY / winH));
+  const p = cinematic ? Math.min(1, Math.max(0, scrollY / winH)) : 0;
   // ease-in curve so the growth accelerates as you scroll
   const pe = p * p;
 
-  const bgTransform      = `translate(${mouse.x * 0.4}px, calc(${scrollY * 0.42}px + ${mouse.y * 0.3}px)) scale(1.14)`;
-  const contentTransform = `translateY(${-scrollY * 0.1}px)`;
+  const bgTransform      = cinematic
+    ? `translate(${mouse.x * 0.4}px, calc(${scrollY * 0.42}px + ${mouse.y * 0.3}px)) scale(1.14)`
+    : 'none';
+  const contentTransform = cinematic ? `translateY(${-scrollY * 0.1}px)` : 'none';
   // content fades out in the first 40% of scroll progress
   const contentOpacity   = Math.max(0, 1 - p * 2.5);
 
@@ -120,7 +134,7 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className={styles.ctas}>
-            <a href="#tickets" className={styles.ctaPrimary}>
+            <a href="#get-involved" className={styles.ctaPrimary}>
               Apply Now
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>

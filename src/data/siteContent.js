@@ -10,19 +10,20 @@ const siteContent = {
     links: [
       { label: 'About',    href: '#about' },
       { label: 'Speakers', href: '#speakers' },
+      { label: 'Editions', href: '#editions' },
       { label: 'Agenda',   href: '#agenda' },
       { label: 'Venue',    href: '#venue' },
-      { label: 'About PIEDS',    href: '/pieds' },
+      { label: 'PIEDS',    href: '/pieds' },
     ],
     ctaText: 'APPLY NOW',
-    ctaHref: '#venue',
+    ctaHref: '#get-involved',
   },
   hero: {
     badge: 'Dubai · 2026',
     headline: 'Building Tomorrow,',
     headlineAccent: 'Together.',
     description: 'IGNITE is the flagship global innovation and entrepreneurship platform by PIEDS — bringing together visionary founders, investors, industry leaders, and aspiring entrepreneurs to exchange ideas, build connections, and shape the future.',
-    ctaPrimary: { label: 'Apply Now', href: '#venue' },
+    ctaPrimary: { label: 'Apply Now', href: '#get-involved' },
     ctaSecondary: { label: 'Learn More', href: '#about' },
     stats: [
       { value: '6',    label: 'Days of building' },
@@ -36,6 +37,11 @@ const siteContent = {
     title: 'Ignite: The Startup',
     titleAccent: 'Catalyst.',
     description: 'IGNITE creates opportunities for startups, businesses, and changemakers to connect with global ecosystems — through keynote sessions, panel discussions, startup showcases, and curated networking experiences that inspire innovation and drive real-world impact.',
+    lede: [
+      'IGNITE is the flagship global innovation and entrepreneurship platform by the Pilani Innovation and Entrepreneurship Development Society (PIEDS). It brings together visionary founders, investors, industry leaders, policymakers, innovators, and aspiring entrepreneurs from around the world to exchange ideas, build meaningful connections, and shape the future of innovation.',
+      'Driven by the belief that great ideas thrive through collaboration, IGNITE creates opportunities for startups, businesses, and changemakers to connect with global ecosystems. Through keynote sessions, panel discussions, startup showcases, investor interactions, and curated networking experiences, the summit fosters conversations that inspire innovation and drive real-world impact.',
+      'With IGNITE 2026, PIEDS takes this vision to a global stage, creating a platform that bridges industries, cultures, and entrepreneurial ecosystems. More than an event, IGNITE is where ideas become opportunities, partnerships are built, and the future of entrepreneurship is shaped.',
+    ],
     audiences: [
       {
         title: 'Connect',
@@ -54,6 +60,122 @@ const siteContent = {
       },
     ],
   },
+  ignite2026: {
+    label: 'IGNITE 2026',
+    title: 'From Legacy to',
+    titleAccent: 'Global Impact.',
+    body: 'Built on the success of previous editions, IGNITE 2026 marks the summit\'s boldest chapter yet. Hosted in Dubai, it brings together founders, investors, industry leaders, policymakers, startups, and aspiring entrepreneurs from across the world to exchange ideas, forge meaningful partnerships, and shape the future of innovation. As IGNITE continues to grow beyond borders, this edition reflects PIEDS\' vision of creating a truly global platform where ambition meets opportunity and innovation drives lasting impact.',
+    marks: [
+      { value: 'Dubai',  label: 'Host city, UAE' },
+      { value: '2026',   label: 'Edition' },
+      { value: '6 Days', label: 'Of building' },
+      { value: 'Global', label: 'Delegate cohort' },
+    ],
+    image: { src: '/bits-dubai.jpg', alt: 'BITS Pilani Dubai Campus — host of IGNITE 2026' },
+  },
+
+  institutions: [
+    {
+      id: 'bits',
+      label: 'About BITS Pilani',
+      title: 'Where Innovation',
+      titleAccent: 'Takes Root.',
+      body: [
+        'BITS Pilani is more than a place of learning. It is an ecosystem where curiosity fuels discovery, collaboration sparks innovation, and entrepreneurship is woven into the campus culture. Here, ideas are encouraged to grow beyond classrooms, evolving into ventures, technologies, and solutions that create meaningful impact.',
+        'This spirit of exploration and bold thinking has shaped generations of founders, innovators, and leaders across industries. Through the Pilani Innovation and Entrepreneurship Development Society (PIEDS), that culture extends beyond the campus, creating platforms like IGNITE that connect ideas with opportunities and inspire the next generation of changemakers.',
+      ],
+      facts: [
+        { value: '1964', label: 'Institute founded' },
+        { value: '70K+', label: 'Global alumni' },
+        { value: '4',    label: 'Campuses worldwide' },
+      ],
+      link: null,
+    },
+    {
+      id: 'pieds',
+      label: 'About PIEDS',
+      title: 'The Launchpad for',
+      titleAccent: 'BITSian Founders.',
+      body: [
+        'The Pilani Innovation & Entrepreneurship Development Society (PIEDS), founded in 2013 at BITS Pilani, is a non-profit technology business incubator. We are a vibrant community dedicated to fostering innovation and entrepreneurship among students. Our mission is to empower aspiring entrepreneurs with the resources, mentorship, and support they need to turn their ideas into successful ventures.',
+        'As a strategic partner to founders, we offer a comprehensive support framework including seed funding, seasoned mentorship, cutting-edge laboratory infrastructure, and specialized workspaces. Backed by government-led initiatives and an expansive global alumni network, PIEDS bridges the gap between ingenuity and market reality. Our ambition is to accelerate the next wave of disruptive innovation, ensuring that every promising founder has the guidance to scale from concept to a market-defining enterprise.',
+      ],
+      facts: [
+        { value: '2013', label: 'Society founded' },
+        { value: '300+', label: 'Startups incubated' },
+        { value: '₹50L', label: 'Max seed funding' },
+      ],
+      link: { label: 'More about PIEDS', href: '/pieds' },
+    },
+  ],
+
+  previousEditions: {
+    label: 'Previous Editions',
+    title: 'A Legacy of',
+    titleAccent: 'Growth.',
+    body: 'Every edition of IGNITE has expanded its reach, strengthened its community, and amplified its impact. What began as a platform to celebrate entrepreneurship has evolved into a growing ecosystem of innovators, founders, investors, and industry leaders united by a shared vision of building the future.',
+    /* Figures below are placeholders pending the final edition-by-edition numbers. */
+    stats: [
+      { value: '950+',  label: 'Founders & changemakers' },
+      { value: '60+',   label: 'Active investors' },
+      { value: '300+',  label: 'Startups incubated' },
+      { value: '₹10L+', label: 'Equity-free grants' },
+      { value: '12+',   label: 'Countries represented' },
+      { value: '40+',   label: 'Speakers & panelists' },
+    ],
+    timeline: [
+      {
+        year: '2023',
+        name: 'IGNITE 2023',
+        place: 'BITS Pilani',
+        summary: 'The founding edition — a campus-scale showcase where 15 handpicked teams pitched to a jury of industry veterans for equity-free grants.',
+        metrics: ['15 finalist teams', 'Pitch finals', 'Campus edition'],
+      },
+      {
+        year: '2024',
+        name: 'IGNITE 2024',
+        place: 'Hyderabad',
+        summary: 'A two-day startup launchpad with fundraising workshops, IP sessions, and a competitive pitching round in front of national VCs.',
+        metrics: ['200+ attendees', 'VC panel', '₹10L+ in grants'],
+      },
+      {
+        year: '2026',
+        name: 'IGNITE 2026',
+        place: 'Dubai, UAE',
+        summary: 'The summit goes global — six days connecting founders, investors, policymakers, and industry leaders across borders and ecosystems.',
+        metrics: ['6-day programme', 'Global cohort', 'Investor panels'],
+        upcoming: true,
+      },
+    ],
+  },
+
+  getInvolved: {
+    label: 'Get Involved',
+    title: 'Ready to Build',
+    titleAccent: 'the Future?',
+    body: 'IGNITE is looking for the next generation of student entrepreneurs.',
+    steps: [
+      {
+        step: '01',
+        title: 'Stay Tuned',
+        desc: 'Follow our official channels for the application launch date. Announcements go out first to our mailing list and social channels.',
+      },
+      {
+        step: '02',
+        title: 'Eligibility',
+        desc: 'Open to student-led teams with a drive to solve real-world problems. No prior funding or incorporation required to apply.',
+      },
+      {
+        step: '03',
+        title: 'Prepare',
+        desc: 'Start refining your idea and building your team — the application process is competitive and highly selective.',
+      },
+    ],
+    ctaPrimary:   { label: 'Register your interest', href: '#' },
+    ctaSecondary: { label: 'Follow for updates',     href: '#' },
+    note: 'Applications for IGNITE 2026 have not opened yet. Register your interest and we\'ll notify you the moment they do.',
+  },
+
   speakers: {
     label: 'Past Speakers & Panelists',
     title: 'Inspiring Voices',

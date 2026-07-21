@@ -4,16 +4,18 @@ const NAV_COLS = [
   {
     heading: 'Event',
     links: [
-      { label: 'About IGNITE',  href: '/#about' },
-      { label: 'Speakers',      href: '/#speakers' },
-      { label: 'Agenda',        href: '/#agenda' },
-      { label: 'Venue',         href: '/#venue' },
+      { label: 'About IGNITE',    href: '/#about' },
+      { label: 'IGNITE 2026',     href: '/#ignite-2026' },
+      { label: 'Speakers',        href: '/#speakers' },
+      { label: 'Previous Editions', href: '/#editions' },
+      { label: 'Agenda',          href: '/#agenda' },
+      { label: 'Venue',           href: '/#venue' },
     ],
   },
   {
     heading: 'Participate',
     links: [
-      { label: 'Apply Now',        href: '/#venue' },
+      { label: 'Apply Now',        href: '/#get-involved' },
       { label: 'Sponsor Us',       href: '#' },
       { label: 'Become a Mentor',  href: '#' },
       { label: 'Partner with Us',  href: '#' },

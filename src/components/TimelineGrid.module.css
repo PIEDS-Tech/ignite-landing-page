@@ -1,12 +1,12 @@
 .section {
-  padding: 100px 0 120px;
-  background: #f6f0ea;
+  padding: var(--section-pad-y) 0;
+  background: var(--color-bg);
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--page-max);
   margin: 0 auto;
-  padding: 0 28px;
+  padding: 0 var(--gutter);
 }
 
 /* ── Header ── */
@@ -86,7 +86,8 @@
 
 /* ── Card ── */
 .card {
-  background: #fff8f3;
+  /* Section moved to #fff8f3, so cards lift to plain white for separation */
+  background: #ffffff;
   border: 1px solid rgba(26,6,6,0.08);
   border-radius: 12px;
   padding: 24px 22px 22px;
@@ -105,6 +106,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
 }
 
 .num {
@@ -116,6 +119,7 @@
 
 .tagRow {
   display: flex;
+  flex-wrap: wrap;
   gap: 5px;
 }
 

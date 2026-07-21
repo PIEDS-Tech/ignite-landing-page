@@ -5,9 +5,9 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: var(--page-max);
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 var(--gutter);
 }
 
 .label {
@@ -77,6 +77,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Horizontal spacing between adjacent carousel slots — DarkSection.js
+     multiplies this to place each card, so one value retunes the whole fan. */
+  --slot: 270px;
 }
 
 /* ── Card ── */
@@ -134,24 +137,57 @@
   align-items: center;
 }
 
+/* The button is padded out to a comfortable tap target; ::after is the visible dot. */
 .dot {
+  width: 30px;
+  height: 26px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dot::after {
+  content: '';
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: var(--color-border);
-  border: none;
-  cursor: pointer;
-  padding: 0;
   transition: background 0.3s, transform 0.3s;
 }
 
-.dotActive {
+.dotActive::after {
   background: var(--color-accent);
   transform: scale(1.5);
 }
 
+@media (max-width: 1024px) {
+  .stage { --slot: 230px; }
+  .title { font-size: clamp(1.75rem, 4vw, 2.5rem); }
+}
+
 @media (max-width: 768px) {
-  .content { flex-direction: column; }
-  .card    { width: 240px; height: 280px; }
-  .fadeLeft, .fadeRight { width: 80px; }
+  .section { padding: var(--section-pad-y) 0; }
+  .content { flex-direction: column; margin-bottom: 48px; }
+  .label   { text-align: left; margin-bottom: 24px; }
+  .card    { width: min(78vw, 260px); height: 300px; padding: 28px 22px; }
+  .stage   { --slot: min(62vw, 220px); height: 340px; }
+  .fadeLeft, .fadeRight { width: 48px; }
+  .num     { margin-bottom: 20px; }
+}
+
+@media (max-width: 480px) {
+  .stage     { --slot: 68vw; height: 320px; }
+  .card      { width: 80vw; height: 288px; }
+  .cardTitle { font-size: 1.25rem; }
+  .fadeLeft, .fadeRight { width: 28px; }
+}
+
+/* Cards are placed with transforms, so the auto-advance is the only way to
+   reach them — keep it running even under reduced-motion, just instantly. */
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none !important; }
 }
